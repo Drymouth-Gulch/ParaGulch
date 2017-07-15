@@ -5,13 +5,13 @@ This file contains:
 - Shotguns
 	Hunting Shotgun
 		+ Sawnoff func
-- Combat Shotguns    
+- Combat Shotguns
 	Colt Rangemaster
-	
+
 - Bolt Actions
-    Hunting Rifle
+	Hunting Rifle
 		+ Scoped
-	
+
 */
 
 /////////////////////////
@@ -45,18 +45,18 @@ This file contains:
 	origin_tech = "combat=2;materials=2"
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction
 	//fire_sound = 'sound/f13weapons/hunting_rifle.ogg'
-	
-	
+
+
 /////////////////////////////
 /////	BOLT ACTIONS	/////
 /////////////////////////////
 
-/obj/item/weapon/gun/projectile/shotgun/boltaction/huntingrifle //reskinned bolt action rifle 
+/obj/item/weapon/gun/projectile/shotgun/boltaction/huntingrifle //reskinned bolt action rifle
 	name = "Hunting rifle"
 	desc = "A favourite of wasters and caravneers alike. Good for taking down lil' varmints."
 	icon_state = "308"
 	item_state = "assault_rifle"
-	
+
 /obj/item/weapon/gun/projectile/shotgun/boltaction/scoped //zoomable hunting rifle
 	name = "scoped hunting rifle"
 	desc = "This piece of junk looks like something that could have been used 700 years ago, but makes up for it with the scope."

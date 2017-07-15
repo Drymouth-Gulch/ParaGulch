@@ -159,12 +159,14 @@
 				//var/obj/item/bodypart/affecting = H.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
 				if(user.apply_damage(rand(1,10), damagetype = BRUTE, def_zone = "head", blocked = 0))
 					user.visible_message("<span class='danger'>[src] recoils up and smacks [user] in the face!</span>", "<span class='userdanger'>[src] recoils up and smacks you in the face!</span>")
-					user.update_damage_overlays()
+					user.UpdateDamageIcon()
+					user.updatehealth()
 			if(46 to 50) //5% chance
 				if(user.apply_damage(rand(1,10), damagetype = BRUTE, def_zone = "head", blocked = 0))
 					user.Weaken(4)
 					user.visible_message("<span class='danger'>[src] recoils up and smacks [user] in the face, knocking them to the floor!</span>", "<span class='userdanger'>[src] recoils up and smacks you in the face, knocking you to the floor!</span>")
-					user.update_damage_overlays()
+					user.UpdateDamageIcon()
+					user.updatehealth()
 		return
 
 

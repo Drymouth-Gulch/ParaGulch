@@ -3,23 +3,23 @@
 This file contains:
 
 - REVOLVERS
-    S&W M29
-        +Scoped
-        +Mysterious Unique
-    Ranger Sequoia
-        +Scoped
-    Police Revolver
-    Needler
-    Colt 6250
-    .223 Pistol - Called That Gun for whatever reason
-    
+	S&W M29
+		+Scoped
+		+Mysterious Unique
+	Ranger Sequoia
+		+Scoped
+	Police Revolver
+	Needler
+	Colt 6250
+	.223 Pistol - Called That Gun for whatever reason
+
 - SPECIAL REVOLVERS
-    Mad Max Double Barrel Unique
-    Caravan Shotgun
-    Single Shotgun -> Sub of improvised
-    Zip gun
-    Pipe Rifle
-	
+	Mad Max Double Barrel Unique
+	Caravan Shotgun
+	Single Shotgun -> Sub of improvised
+	Zip gun
+	Pipe Rifle
+
 */
 
 /////////////////////////
@@ -43,16 +43,15 @@ This file contains:
 /obj/item/weapon/gun/projectile/revolver/m29/mysterious
 	name = "mysterious revolver"
 	desc = "Yow!~"
-	icon_state = "mysterious"
-	damageG=999
-	damageA=999
-	damageS=999
-	rangeG=0
+	icon_state = "mysterious_m29"
+	//damage=999 TODO - Work out efficient way of doing proper modifiers
+	armour_penetration=999
+	//stamina=999 TODO - Work out efficient way of doing proper modifiers
+	//range=0 TODO - Work out efficient way of doing proper modifiers
 
 /obj/item/weapon/gun/projectile/revolver/m29/mysterious/New()
 	..()
 	update_icon()
-	src.setgundamage(src.damageG,src.damageA,src.damageS,src.rangeG)
 	return
 
 /obj/item/weapon/gun/projectile/revolver/sequoia
@@ -85,15 +84,14 @@ This file contains:
 	icon_state = "colt6250"
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/rev6250
 	fire_sound = 'sound/f13weapons/10mm_fire_02.ogg'
-	damageG=5
-	damageA=0
-	damageS=0
-	rangeG=0
+	//damage=5 TODO - Work out efficient way of doing proper modifiers
+	armour_penetration=0
+	//stamina=0 TODO - Work out efficient way of doing proper modifiers
+	//range=0 TODO - Work out efficient way of doing proper modifiers
 
 /obj/item/weapon/gun/projectile/revolver/colt6250/New()
 	..()
 	update_icon()
-	src.setgundamage(src.damageG,src.damageA,src.damageS,src.rangeG)
 	return
 
 /obj/item/weapon/gun/projectile/revolver/sequoia/scoped
@@ -110,19 +108,18 @@ This file contains:
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/rev556
 	origin_tech = "combat=4;materials=3"
 	fire_sound = 'sound/f13weapons/that_gun.ogg'
-	damageG=15
-	damageA=5
-	damageS=0
-	rangeG=0
+	//damage=15 TODO - Work out efficient way of doing proper modifiers
+	armour_penetration=5
+	//stamina=0 TODO - Work out efficient way of doing proper modifiers
+	//range=0 TODO - Work out efficient way of doing proper modifiers
 
 /obj/item/weapon/gun/projectile/revolver/that_gun/New()
 	..()
 	update_icon()
-	src.setgundamage(src.damageG,src.damageA,src.damageS,src.rangeG)
 	return
-    
+
 /////////////////////////////////
-/////	SPECIAL REOLVERS    /////
+/////	SPECIAL REOLVERS	/////
 /////////////////////////////////
 
 /obj/item/weapon/gun/projectile/revolver/max_sawn_off
@@ -136,15 +133,14 @@ This file contains:
 	origin_tech = "combat=4;materials=2"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/mad
 	fire_sound = 'sound/f13weapons/max_sawn_off.ogg'
-	damageG=25
-	damageA=0
-	damageS=0
-	rangeG=0
+	//damage=25 TODO - Work out efficient way of doing proper modifiers
+	armour_penetration=0
+	//stamina=0 TODO - Work out efficient way of doing proper modifiers
+	//range=0 TODO - Work out efficient way of doing proper modifiers
 
 /obj/item/weapon/gun/projectile/revolver/max_sawn_off/New()
 	..()
 	update_icon()
-	src.setgundamage(src.damageG,src.damageA,src.damageS,src.rangeG)
 	return
 
 /obj/item/weapon/gun/projectile/revolver/caravan_shotgun
@@ -158,7 +154,7 @@ This file contains:
 	origin_tech = "combat=2;materials=2"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/mad
 	fire_sound = 'sound/f13weapons/caravan_shotgun.ogg'
-	heavy_weapon = 1
+	weapon_weight = WEAPON_HEAVY
 
 /obj/item/weapon/gun/projectile/revolver/single_shotgun
 	name = "single shotgun"
@@ -171,7 +167,7 @@ This file contains:
 	origin_tech = "combat=2;materials=2"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/improvised
 	fire_sound = 'sound/f13weapons/caravan_shotgun.ogg'
-	heavy_weapon = 1
+	weapon_weight = WEAPON_HEAVY
 
 /obj/item/weapon/gun/projectile/revolver/zipgun
 	name = "zipgun"

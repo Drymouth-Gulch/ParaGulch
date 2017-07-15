@@ -55,10 +55,14 @@
 /obj/item/weapon/gun/energy/laser/cyborg/emp_act()
 	return
 
+//UPDATED to be in line with waste version
 /obj/item/weapon/gun/energy/laser/scatter
-	name = "scatter laser gun"
+	name = "tribeam laser rifle"
 	desc = "A laser gun equipped with a refraction kit that spreads bolts."
-	ammo_type = list(/obj/item/ammo_casing/energy/laser/scatter, /obj/item/ammo_casing/energy/laser)
+	icon_state = "tribeam"
+	item_state = "laser"
+	ammo_type = list(/obj/item/ammo_casing/energy/laser/scatter)
+	cell_type = /obj/item/weapon/stock_parts/cell/laser
 
 ///Laser Cannon
 

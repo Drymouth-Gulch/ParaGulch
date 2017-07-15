@@ -2,18 +2,18 @@
 
 This file contains:
 
-- 
-    10mm submachine gun
-    Assault Rifle
-    Infiltrator
-    Marsman Carbine
-    Service Rifle
-    Minigun
-    Pancor
-    Riot Shotgun - Semi Automatic Shotgun
-    LSW - Light Support Weapon
-   
-	
+-
+	10mm submachine gun
+	Assault Rifle
+	Infiltrator
+	Marsman Carbine
+	Service Rifle
+	Minigun
+	Pancor
+	Riot Shotgun - Semi Automatic Shotgun
+	LSW - Light Support Weapon
+
+
 */
 
 /////////////////////////////////
@@ -49,7 +49,7 @@ This file contains:
 	mag_load_sound = 'sound/effects/wep_magazines/ar_load.ogg'
 	mag_unload_sound = 'sound/effects/wep_magazines/ar_unload.ogg'
 	chamber_sound = 'sound/effects/wep_magazines/ar_chamber.ogg'
-	heavy_weapon = 1
+	weapon_weight = WEAPON_HEAVY
 
 /obj/item/weapon/gun/projectile/automatic/assault_rifle/infiltrator
 	name = "infiltrator"
@@ -60,17 +60,17 @@ This file contains:
 	can_unsuppress = 0
 	zoomable = TRUE
 	zoom_amt = 7
-	damageG=6
-	damageA=0
-	damageS=0
-	rangeG=0
+	//damageG=6  TODO - Work out efficient way of doing proper modifiers
+	armour_penetration=0
+	//stamina=0 TODO - Work out efficient way of doing proper modifiers
+	//range=0 TODO - Work out efficient way of doing proper modifiers
 	fire_sound = 'sound/weapons/Gunshot_large_silenced.ogg'
-	heavy_weapon = 1
+	weapon_weight = WEAPON_HEAVY
 
 /obj/item/weapon/gun/projectile/automatic/assault_rifle/infiltrator/New()
 	..()
 	update_icon()
-	src.setgundamage(src.damageG,src.damageA,src.damageS,src.rangeG)
+
 	return
 
 /obj/item/weapon/gun/projectile/automatic/marksman
@@ -91,16 +91,15 @@ This file contains:
 	mag_load_sound = 'sound/effects/wep_magazines/ar_load.ogg'
 	mag_unload_sound = 'sound/effects/wep_magazines/ar_unload.ogg'
 	chamber_sound = 'sound/effects/wep_magazines/ar_chamber.ogg'
-	damageG=10
-	damageA=0
-	damageS=0
-	rangeG=0
-	heavy_weapon = 1
+	//damageG=10 TODO - Work out efficient way of doing proper modifiers
+	armour_penetration=0
+	//stamina=0 TODO - Work out efficient way of doing proper modifiers
+	//range=0 TODO - Work out efficient way of doing proper modifiers
+	weapon_weight = WEAPON_HEAVY
 
 /obj/item/weapon/gun/projectile/automatic/marksman/New()
 	..()
 	update_icon()
-	src.setgundamage(src.damageG,src.damageA,src.damageS,src.rangeG)
 	return
 
 /obj/item/weapon/gun/projectile/automatic/marksman/servicerifle
@@ -110,7 +109,7 @@ This file contains:
 	item_state = "assault_rifle"
 	fire_sound = 'sound/f13weapons/varmint_rifle.ogg'
 	zoomable = FALSE
-	heavy_weapon = 1
+	weapon_weight = WEAPON_HEAVY
 
 /obj/item/weapon/gun/projectile/automatic/minigun
 	name = "Minigun"
@@ -124,7 +123,7 @@ This file contains:
 	can_suppress = 0
 	burst_size = 3
 	fire_delay = 0.5
-	heavy_weapon = 1
+	weapon_weight = WEAPON_HEAVY
 
 /obj/item/weapon/gun/projectile/automatic/shotgun/pancor
 	name = "pancor jackhammer"
@@ -136,7 +135,7 @@ This file contains:
 	can_suppress = 0
 	burst_size = 3
 	w_class = 4
-	heavy_weapon = 1
+	weapon_weight = WEAPON_HEAVY
 
 /obj/item/weapon/gun/projectile/automatic/shotgun/riot
 	name = "riot shotgun"
@@ -149,7 +148,7 @@ This file contains:
 	fire_sound = 'sound/f13weapons/riot_shotgun.ogg'
 	mag_type = /obj/item/ammo_box/magazine/d12g
 	w_class = 4
-	heavy_weapon = 1
+	weapon_weight = WEAPON_HEAVY
 
 /obj/item/weapon/gun/projectile/automatic/lsw
 	name = "light support weapon"
@@ -162,10 +161,10 @@ This file contains:
 	fire_sound = 'sound/f13weapons/assaultrifle_fire.ogg'
 	can_suppress = 0
 	burst_size = 10
-	heavy_weapon = 1
+	weapon_weight = WEAPON_HEAVY
 	fire_delay = 1
 	mag_load_sound = 'sound/effects/wep_magazines/ar_load.ogg'
 	mag_unload_sound = 'sound/effects/wep_magazines/ar_unload.ogg'
 	chamber_sound = 'sound/effects/wep_magazines/ar_chamber.ogg'
 	w_class = 5
-	heavy_weapon = 1
+	weapon_weight = WEAPON_HEAVY

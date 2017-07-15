@@ -5,7 +5,7 @@ This file contains:
 - PISTOLS
 	N99 Pistol - Thats one long description
 	//////Where the fuck is 10mm pistol
-    
+
 */
 
 /////////////////////////
@@ -24,4 +24,4 @@ This file contains:
 	can_suppress = 1
 	burst_size = 1
 	fire_delay = 0
-	action_button_name = null
+	//action_button_name = null
