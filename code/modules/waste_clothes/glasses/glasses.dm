@@ -2,24 +2,24 @@
 
 This file contains:
 
-- 
+-
 	-Biker Glasses
 	-Legion Military Goggles
 	-Military Goggles
-   
-	
+
+
 */
 
 ////////////////////
-//		GLASSES		
+//		GLASSES
 ////////////////////
 
-/obj/item/clothing/glasses/f13/biker
+/obj/item/clothing/glasses/biker
 	name = "biker goggles"
 	desc = "B-B-B-B-Bad,<br>B-B-B-B-Bad,<br>B-B-B-B-Bad,<br>Bad to the bone!"
 	icon_state = "biker"
 	item_state = "biker"
-    
+
 /obj/item/clothing/glasses/sunglasses/legion
 	name = "legion military goggles"
 	desc = "Flash-resistant legion goggles."
@@ -27,7 +27,7 @@ This file contains:
 	item_state = "legion"
 	flash_protect = 2
 	tint = 0
-	
+
 /obj/item/clothing/glasses/sunglasses/swat
 	name = "military goggles"
 	desc = "Flash-resistant military grade goggles."

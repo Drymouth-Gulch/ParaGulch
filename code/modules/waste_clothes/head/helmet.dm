@@ -23,11 +23,14 @@ This file contains:
         legion centurion
         legion legat
     -NCR
+    	NCR Helmet
+    	NCR Beret
+    	Ranger Hat
         ranger combat helmet
 	        +desert ranger
     -VAULT
         vault riot helmet
-        
+
     -POWER ARMOR HELMETS - TODO THESE WILL EVENTUALLY BE SIMILAR TO HARDSUITS(?) - gomble
         t45b
 	        +salvaged
@@ -37,8 +40,8 @@ This file contains:
         t45d
         	+broken
 
-   
-	
+
+
 */
 /////////
 //HELMETS
@@ -203,6 +206,29 @@ This file contains:
 	invis_view = SEE_INVISIBLE_MINIMUM
 */
 
+/obj/item/clothing/head/ncr
+	name = "NCR helmet"
+	desc = "A standard issue NCR combat helmet."
+	icon_state = "ncr_helmet"
+	item_state = "ncr_helmet"
+	armor = list(melee = 20, bullet = 15, laser = 10,energy = 0, bomb = 5, bio = 0, rad = 0)
+	put_on_delay = 10
+	strip_delay = 50
+
+/obj/item/clothing/head/beret/ncr
+	name = "\improper NCR Officer's Beret"
+	desc = "A green beret, standard issue for all commissioned NCR Officers."
+	icon_state = "ncr_beret"
+	item_state = "ncr_beret"
+	armor = list(melee = 25, bullet = 20, laser = 15,energy = 0, bomb = 10, bio = 0, rad = 0)
+
+/obj/item/clothing/head/ranger
+	name = "Ranger Hat"
+	desc = "An NCR ranger hat, standard issue amongst all patrol rangers."
+	icon_state = "drill_hat"
+	item_state = "drillhat"
+	armor = list(melee = 30, bullet = 25, laser = 20,energy = 0, bomb = 15, bio = 0, rad = 0)
+
 /obj/item/clothing/head/helmet/rangercombat/desert
 	name = "desert ranger combat helmet"
 	desc = "An U.S Marine Corps helmet, used by the legendary Desert Rangers."
@@ -253,9 +279,11 @@ This file contains:
 	if (prob(hit_reflect_chance))
 		return 1
 
-//Power armor helmets
+/////////////////////
+//POWER ARMOR HELMETS
+/////////////////////
 
-/obj/item/clothing/head/helmet/power_armor/f13
+/obj/item/clothing/head/helmet/power_armor
 	flags = HEADCOVERSEYES | HEADCOVERSMOUTH | STOPSPRESSUREDMAGE | BLOCKHAIR
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE
 	cold_protection = HEAD
@@ -288,15 +316,15 @@ This file contains:
 /obj/item/clothing/head/helmet/power_armor/advanced
 	name = "Advanced power helmet"
 	desc = "It's an advanced power armor Mk I helmet, typically used by the Enclave. It looks somewhat threatening."
-	icon_state = "advanced"
-	item_state = "advanced"
+	icon_state = "advhelmet"
+	item_state = "advhelmet"
 	armor = list(melee = 80, bullet = 70, laser = 70, energy = 70, bomb = 70, bio = 100, rad = 80)
 
 /obj/item/clothing/head/helmet/power_armor/advanced/mk2
 	name = "Advanced power helmet MK2"
 	desc = "It's an advanced power armor Mk II helmet, typically used by the Enclave. It looks somewhat threatening."
-	icon_state = "advanced"
-	item_state = "advanced"
+	icon_state = "advhelmet"
+	item_state = "advhelmet"
 	armor = list(melee = 90, bullet = 80, laser = 80, energy = 80, bomb = 80, bio = 100, rad = 90)
 
 /obj/item/clothing/head/helmet/power_armor/t51b
@@ -320,7 +348,7 @@ This file contains:
 	icon_state = "t45dhelmet"
 	item_state = "t45dhelmet"
 	armor = list(melee = 70, bullet = 60, laser = 60, energy = 60, bomb = 60, bio = 100, rad = 70)
-	action_button_name = "Toggle Helmet Light"
+	actions_types = list(/datum/action/item_action/toggle_helmet_light)
 	var/brightness_on = 4 //luminosity when the light is on
 	var/on = 0
 
@@ -334,22 +362,29 @@ This file contains:
 	user.update_inv_head()	//so our mob-overlays update
 
 	if(on)
-		turn_on(user)
+		set_light(brightness_on)
 	else
-		turn_off(user)
+		set_light(0)
+
+	for(var/X in actions)
+		var/datum/action/A = X
+		A.UpdateButtonIcon()
 
 /obj/item/clothing/head/helmet/power_armor/t45d/pickup(mob/user)
 	if(on)
-		user.AddLuminosity(brightness_on)
-		SetLuminosity(0)
+		set_light(brightness_on)
+	else
+		set_light(0)
 
 /obj/item/clothing/head/helmet/power_armor/t45d/dropped(mob/user)
 	if(on)
-		user.AddLuminosity(-brightness_on)
-		SetLuminosity(brightness_on)
-
+		set_light(brightness_on)
+	else
+		set_light(0)
+/*
 /obj/item/clothing/head/helmet/power_armor/t45d/proc/turn_on(mob/user)
 	user.AddLuminosity(brightness_on)
 
 /obj/item/clothing/head/helmet/power_armor/t45d/proc/turn_off(mob/user)
 	user.AddLuminosity(-brightness_on)
+	*/

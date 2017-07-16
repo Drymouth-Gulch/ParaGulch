@@ -2,7 +2,7 @@
 
 This file contains:
 
-- 
+-
     - LEGION
 		- leather boots
 		- Metal Boots
@@ -11,10 +11,10 @@ This file contains:
 		- Combat Boots
 	- Fluff
 		- Diesel Boots
-		
-		
-   
-	
+
+
+
+
 */
 
 ///////////////////////
@@ -29,7 +29,7 @@ This file contains:
 	item_state = "legionleather"
 	item_color = "cult"
 	armor = list(melee = 15, bullet = 10, laser = 5, energy = 0, bomb = 20, bio = 0, rad = 0)
-	can_insert_knife = TRUE
+//	can_insert_knife = TRUE
 
 /obj/item/clothing/shoes/legionmetal
 	name = "legion metal boots"
@@ -38,7 +38,7 @@ This file contains:
 	item_state = "legionmetal"
 	item_color = "cult"
 	armor = list(melee = 25, bullet = 20, laser = 25, energy = 10, bomb = 30, bio = 0, rad = 15)
-	can_insert_knife = TRUE
+//	can_insert_knife = TRUE
 
 /obj/item/clothing/shoes/legionlegat
 	name = "legion legat boots"
@@ -47,21 +47,21 @@ This file contains:
 	item_state = "legionlegat"
 	item_color = "cult"
 	armor = list(melee = 35, bullet = 25, laser = 30, energy = 10, bomb = 30, bio = 0, rad = 15)
-	can_insert_knife = TRUE
-	
+//	can_insert_knife = TRUE
+
 ///////////////////////
 //		NCR
 //////////////////////
-	
+
 /obj/item/clothing/shoes/combat/ncr
 	name = "NCR boots"
 	desc = "Standard issue high speed low drag NCR boots."
 	icon_state = "ncr_boots"
 	item_state = "ncr_boots"
-	
+
 ///////////////////////
 //		FLUFF
-//////////////////////	
+//////////////////////
 
 /obj/item/clothing/shoes/fluff/diesel
 	name = "diesel boots"
@@ -71,4 +71,4 @@ This file contains:
 	armor = list(melee = 20, bullet = 10, laser = 10, energy = 10, bomb = 10, bio = 0, rad = 0)
 	cold_protection = FEET
 	min_cold_protection_temperature = SHOES_MIN_TEMP_PROTECT
-	can_insert_knife = TRUE
+//	can_insert_knife = TRUE
