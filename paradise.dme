@@ -2214,6 +2214,8 @@
 #include "code\modules\waste_clothes\shoes\miscellaneous.dm"
 #include "code\modules\waste_clothes\suits\armor.dm"
 #include "code\modules\waste_clothes\suits\miscellaneous.dm"
+#include "code\modules\waste_clothes\under\miscelaneous.dm"
+#include "code\modules\waste_clothes\under\PANTS.dm"
 #include "goon\code\datums\browserOutput.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
