@@ -14,6 +14,24 @@
 	var/dry = 0
 	var/cooktype[0]
 	var/cooked_type = null  //for microwave cooking. path of the resulting item after microwaving
+	var/list/bonus_reagents = list() //the amount of reagents (usually nutriment and vitamin) added to crafted/cooked snacks, on top of the ingredients reagents.
+
+	//Called when you finish tablecrafting a snack.
+/obj/item/weapon/reagent_containers/food/snacks/CheckParts()
+	if(bonus_reagents.len)
+		for(var/r_id in bonus_reagents)
+			var/amount = bonus_reagents[r_id]
+			reagents.add_reagent(r_id, amount)
+
+// initialize_cooked_food() is called when microwaving the food
+/obj/item/weapon/reagent_containers/food/snacks/proc/initialize_cooked_food(obj/item/weapon/reagent_containers/food/snacks/S, cooking_efficiency = 1)
+	S.create_reagents(S.volume)
+	if(reagents)
+		reagents.trans_to(S, reagents.total_volume)
+	if(S.bonus_reagents.len)
+		for(var/r_id in S.bonus_reagents)
+			var/amount = S.bonus_reagents[r_id] * cooking_efficiency
+			S.reagents.add_reagent(r_id, amount)
 
 
 	//Placeholder for effect that trigger on eating that aren't tied to reagents.
