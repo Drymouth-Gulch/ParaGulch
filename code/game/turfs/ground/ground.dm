@@ -37,9 +37,9 @@ turf/ground/New()
 					lum = 1
 					break
 	if(lum)
-		SetLuminosity(sun_light,0)
+		set_light(sun_light,0)
 		return
-	SetLuminosity(0)
+	set_light(0)
 
 /turf/ground/return_air()
 	var/datum/gas_mixture/GM = new
