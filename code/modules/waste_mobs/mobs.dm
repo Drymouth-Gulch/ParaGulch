@@ -14,6 +14,7 @@ This file contains:
 		-GHOUL
 		-GLOWING GHOUL
 			-PROTECTRON
+			-GUTSY
 
 	PASSIVE
 		-BRAHMIN
@@ -348,7 +349,7 @@ mob/living/simple_animal/pet/dog/mutant
 	butcher_results = list(/obj/effect/gibspawner/robot = 1)
 
 /////////////////////////////////
-/////	HOSTILE PROTECTRON	/////
+/////	HOSTILE BORGS		/////
 /////////////////////////////////
 
 /mob/living/simple_animal/hostile/robot
@@ -401,3 +402,45 @@ mob/living/simple_animal/pet/dog/mutant
 	ranged = 1
 	projectiletype = /obj/item/projectile/protectron
 	projectilesound = 'sound/weapons/laser.ogg'
+
+/mob/living/simple_animal/hostile/gutsy
+	name = "mister gutsy"
+	desc = "Fucking robot, it finna cut you."
+	icon = 'icons/mob/robots.dmi'
+	icon_state = "g_secborg"
+	icon_living = "g_secborg"
+	maxHealth = 500
+	health = 500
+	stat_attack = 1
+	robust_searching = 1
+	a_intent = "harm"
+	armour_penetration = 20
+	attacktext = "saws through"
+	melee_damage_lower = 35
+	melee_damage_upper = 45
+	attack_sound = 'sound/weapons/bladeslice.ogg'
+	faction = list("syndicate")
+	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
+	minbodytemp = 0
+	gold_core_spawnable = 1
+	environment_smash = 0
+
+/mob/living/simple_animal/hostile/gutsy/death(gibbed)
+	..(1)
+	visible_message("<span class='warning'>[src] blows apart!</span>")
+	new /obj/effect/decal/cleanable/blood/gibs/robot(src.loc)
+	var/datum/effect/system/spark_spread/s = new /datum/effect/system/spark_spread
+	s.set_up(3, 1, src)
+	s.start()
+	ghostize()
+	qdel(src)
+	return
+
+/mob/living/simple_animal/hostile/gutsy/ranged
+	name = "mister gutsy"
+	desc = "Fucking robot, it finna shoot you."
+	ranged = 1
+	retreat_distance = 2
+	minimum_distance = 2
+	projectilesound = 'sound/f13weapons/plasma_rifle.ogg'
+	projectiletype = /obj/item/projectile/beam/plasma_beam
