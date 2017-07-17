@@ -4,7 +4,7 @@
 	luminosity = 1
 
 	var/intact = 1
-	var/turf/baseturf = /turf/space
+	var/turf/baseturf = /turf/ground/desert // fuckspace // /turf/space
 	var/slowdown = 0 //negative for faster, positive for slower
 
 	//Properties for open tiles (/floor)
@@ -240,6 +240,13 @@
 					atox += S.air.toxins
 					atemp += S.air.temperature
 				turf_count++
+			else if(istype(T, /turf/ground))
+				aoxy += T.oxygen
+				anitro += T.nitrogen
+				aco += T.carbon_dioxide
+				atox += T.toxins
+				atemp += T.temperature
+				turf_count ++
 		air.oxygen = (aoxy/max(turf_count,1))//Averages contents of the turfs, ignoring walls and the like
 		air.nitrogen = (anitro/max(turf_count,1))
 		air.carbon_dioxide = (aco/max(turf_count,1))
