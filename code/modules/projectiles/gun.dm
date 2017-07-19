@@ -169,9 +169,6 @@
 					user.updatehealth()
 		return
 
-
-
-
 	process_fire(target,user,1,params)
 
 /obj/item/weapon/gun/proc/can_trigger_gun(var/mob/living/user)
