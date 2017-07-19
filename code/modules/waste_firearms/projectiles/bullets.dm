@@ -1,7 +1,7 @@
 /obj/item/projectile/bullet/training //training shouldn't embed (but it would be funny)
 	name = "dummy bullet"
 	damage = 0
-	embed = 0
+//	embed = 0
 
 /obj/item/projectile/bullet/sequoia
 	name = "bullet"
