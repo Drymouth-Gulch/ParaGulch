@@ -2237,6 +2237,7 @@
 #include "code\modules\waste_food&drinks\food\snacks\meat.dm"
 #include "code\modules\waste_mobs\mobs.dm"
 #include "code\modules\waste_objects\items\stacks\sheets\leather.dm"
+#include "code\modules\waste_weapons\weaponry.dm"
 #include "goon\code\datums\browserOutput.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
