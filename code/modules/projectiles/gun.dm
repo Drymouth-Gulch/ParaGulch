@@ -15,6 +15,8 @@
 	origin_tech = "combat=1"
 	needs_permit = 1
 	attack_verb = list("struck", "hit", "bashed")
+	//Fallout gun draw sound
+	drawsound = 'sound/items/unholster.ogg'
 
 	var/fire_sound = "gunshot"
 	var/fire_sound_text = "gunshot" //the fire sound that shows in chat messages: laser blast, gunshot, etc.
