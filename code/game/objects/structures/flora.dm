@@ -9,6 +9,7 @@
 	density = 1
 	pixel_x = -16
 	layer = 9
+	var/logamt = 6 // how many logs we get from trees
 
 /obj/structure/flora/tree/pine
 	name = "pine tree"
@@ -334,3 +335,14 @@
 						qdel(src)
 	else
 		return ..()
+//Axes let us chop down little tree babies into loggos
+/obj/structure/flora/tree/attackby(obj/item/weapon/W, mob/user)
+	..()
+	if(istype(W, /obj/item/weapon/circular_saw) || istype(W, /obj/item/weapon/hatchet) || (istype(W, /obj/item/weapon/twohanded/fireaxe) && W:wielded) || istype(W, /obj/item/weapon/melee/energy) || istype(W, /obj/item/weapon/twohanded/required/chainsaw))
+		visible_message("<i>[user] begins to chop up [src]...</i>")
+		if(do_after(user, 30, target = src))
+			for(var/i = 1, i <= logamt, i++)
+				new /obj/item/weapon/log(get_turf(src))
+			visible_message("<i>[user] has chopped [src] into logs./i>")
+			qdel(src)
+			return
