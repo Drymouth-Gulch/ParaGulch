@@ -8,7 +8,7 @@
 	nitrogen = MOLES_N2STANDARD
 	smooth = SMOOTH_TRUE
 	var/obj/structure/flora/grass/wasteland/grass = 1
-	var/sun_light
+	var/sun_light = 3
 	var/open_space = 1
 
 turf/ground/New()
@@ -16,16 +16,18 @@ turf/ground/New()
 	var/area/area = src.loc
 	if(area && area.outdoors)
 		open_space = 1
-		//sun_light = SSsun.global_sun_light
+		sun_light = sun.global_sun_light
 	else
 		open_space = 0
 		sun_light = 0
+	//update_sunlight()
+	set_light(1.4,sun_light)
 /turf/ground/Destroy()
 	return QDEL_HINT_LETMELIVE
 
 /turf/ground/proc/update_sunlight()
-	var/lum = 0
-	if(sun_light && open_space)
+	/*var/lum = 0
+	if(sun_light) && open_space)
 		for(var/turf/T in RANGE_TURFS(1,src))
 			if(istype(T,/turf/simulated))
 				lum = 1
@@ -36,10 +38,10 @@ turf/ground/New()
 					lum = 1
 					break
 	if(lum)
-		set_light(sun_light,0)
+		set_light(1,sun_light)
 		return
-	set_light(0)
-
+		*/
+	set_light(1.5,sun_light)
 /turf/ground/return_air()
 	var/datum/gas_mixture/GM = new
 

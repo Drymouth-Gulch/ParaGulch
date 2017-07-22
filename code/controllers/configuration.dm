@@ -173,6 +173,11 @@
 	var/player_overflow_cap = 0 //number of players before the server starts rerouting
 	var/list/overflow_whitelist = list() //whitelist for overflow
 
+	var/sun_enabled = 1
+	var/max_sunlight = 5
+	var/min_sunlight = 0.3
+	var/time_of_day_rate = 18000
+
 	var/disable_away_missions = 0 // disable away missions
 	var/disable_space_ruins = 0 //disable space ruins
 
@@ -646,6 +651,14 @@
 					config.traitor_objectives_amount = text2num(value)
 				if("reactionary_explosions")
 					config.reactionary_explosions	= 1
+				if("sun_enabled")
+					config.sun_enabled				= text2num(value)
+				if("max_sunlight")
+					config.max_sunlight				= text2num(value)
+				if("min_sunlight")
+					config.min_sunlight				= text2num(value)
+				if("time_of_day_rate")
+					config.time_of_day_rate			= text2num(value)
 				if("bombcap")
 					var/BombCap = text2num(value)
 					if(!BombCap)
