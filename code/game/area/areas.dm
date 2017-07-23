@@ -2,6 +2,7 @@
 
 // ===
 /area
+	var/radiation = 0
 	var/global/global_uid = 0
 	var/uid
 	var/list/ambientsounds = list('sound/ambience/ambigen1.ogg','sound/ambience/ambigen3.ogg',\
@@ -285,6 +286,7 @@
 
 
 /area/Entered(A)
+
 	var/area/newarea
 	var/area/oldarea
 
@@ -306,6 +308,8 @@
 	if(!istype(A,/mob/living))	return
 
 	var/mob/living/L = A
+	if(radiation)
+		L.rad_act(radiation)
 	if(!L.ckey)	return
 	if((oldarea.has_gravity == 0) && (newarea.has_gravity == 1) && (L.m_intent == MOVE_INTENT_RUN)) // Being ready when you change areas gives you a chance to avoid falling all together.
 		thunk(L)

@@ -10,7 +10,7 @@
 	..()
 	update_icon()
 
-/obj/item/weapon/stock_parts/cell/laser
+/obj/item/weapon/stock_parts/cell/device/laser
 	icon = 'icons/obj/laser_battery.dmi'
 	icon_state = "standart"
 	name = "standart laser battery"
@@ -19,7 +19,7 @@
 	charge = 700
 	maxcharge = 700
 
-/obj/item/weapon/stock_parts/cell/laser/high
+/obj/item/weapon/stock_parts/cell/device/laser/high
 	name = "high laser battery"
 	desc = "High battery power supply high-intensity."
 	icon_state = "high"
@@ -28,7 +28,7 @@
 	charge = 1100
 	maxcharge = 1100
 
-/obj/item/weapon/stock_parts/cell/laser/super
+/obj/item/weapon/stock_parts/cell/device/laser/super
 	name = "super laser battery"
 	desc = "Super battery power supply high-intensity."
 	icon_state = "super"
@@ -37,7 +37,7 @@
 	charge = 1500
 	maxcharge = 1500
 
-/obj/item/weapon/stock_parts/cell/laser/hyper
+/obj/item/weapon/stock_parts/cell/device/laser/hyper
 	name = "hyper laser battery"
 	desc = "Hyper battery power supply high-intensity."
 	icon_state = "hyper"

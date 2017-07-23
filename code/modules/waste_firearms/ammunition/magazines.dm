@@ -89,3 +89,47 @@
 	max_ammo = 3
 	ammo_type = /obj/item/ammo_casing/a40mm
 	caliber = "40mm"
+
+/obj/item/ammo_box/magazine/d22
+	name = "drum magazine .22"
+	icon_state = "drum22"
+	caliber = "22"
+	ammo_type = /obj/item/ammo_casing/c22
+	max_ammo = 180
+	multiple_sprites = 2
+
+/obj/item/ammo_box/magazine/m22
+	name = "magazine .22"
+	icon_state = "22mag"
+	caliber = "22"
+	ammo_type = /obj/item/ammo_casing/c22
+	max_ammo = 16
+	multiple_sprites = 2
+
+/obj/item/ammo_box/magazine/m9mm
+	name = "pistol magazine 9mm"
+	icon_state = "9x19p"
+	origin_tech = "combat=3"
+	ammo_type = /obj/item/ammo_casing/c9mm
+	caliber = "9mm"
+	max_ammo = 13
+	multiple_sprites = 2
+
+/obj/item/ammo_box/magazine/m45
+	name = "handgun magazine (.45)"
+	icon_state = "45-8"
+	ammo_type = /obj/item/ammo_casing/c45
+	caliber = ".45"
+	max_ammo = 8
+
+/obj/item/ammo_box/magazine/m45/update_icon()
+	..()
+	icon_state = "45-[ammo_count() ? "8" : "0"]"
+
+/obj/item/ammo_box/magazine/stick45
+	name = "stick magazine (.45)"
+	icon_state = "grease"
+	ammo_type = /obj/item/ammo_casing/c45
+	caliber = ".45"
+	max_ammo = 30
+	multiple_sprites = 1
