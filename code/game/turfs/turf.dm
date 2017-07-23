@@ -4,7 +4,7 @@
 	luminosity = 1
 
 	var/intact = 1
-	var/turf/baseturf = /turf/space
+	var/turf/baseturf = /turf/ground/desert
 	var/slowdown = 0 //negative for faster, positive for slower
 
 	//Properties for open tiles (/floor)

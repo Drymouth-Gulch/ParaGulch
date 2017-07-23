@@ -188,6 +188,7 @@
 	origin_tech = "materials=2;engineering=2"
 	attack_verb = list("bashed", "bludgeoned", "thrashed", "whacked")
 	usesound = 'sound/effects/shovel_dig.ogg'
+	var/digspeed = 20 // for digging the ground. Diggy diggy hole
 	toolspeed = 1
 
 /obj/item/weapon/shovel/spade
