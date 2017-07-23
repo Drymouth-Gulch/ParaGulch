@@ -91,6 +91,19 @@ var/list/ghostteleportlocs = list()
 
 /*-----------------------------------------------------------------------------*/
 
+/area/enclave/base1
+	name = "Enclave Upper Base"
+	icon_state = "security"
+/area/city1
+	name = "Sunny Dale"
+	icon_state = "centcom"
+/area/city2
+	name = "Klamat"
+	icon_state = "centcom"
+/area/city3
+	name = "The Den"
+	icon_state = "centcom"
+
 /area/engine/
 
 /area/turret_protected/

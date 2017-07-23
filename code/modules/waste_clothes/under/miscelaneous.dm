@@ -335,6 +335,19 @@ This file contains:
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HEAD
 	//can_adjust = 0
 
+/obj/item/clothing/under/f13/reconbroken
+	name = "broken recon armor"
+	desc = "Intended to serve as the under-armor of the T-45d power armor, the recon armor is a vacuum-sealed asbestos jumpsuit covering the entire body.<br>Attached to it is the interface and mounts for the power armor.<br>Its purpose is twofold - it allows the user to actually operate the armor and protect soft tissue from moving parts inside the suit and heat.This one is in bad condition."
+	icon_state = "recon"
+	item_state = "reconbroken"
+	item_color = "reconbroken"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HEAD
+	flags = BLOCKHAIR
+	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HEAD
+	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HEAD
+	//can_adjust = 0
+
 /obj/item/clothing/under/f13/ncr
     name = "NCR fatigues"
     desc = "A set of standard issue New California Republic trooper fatigues, offers slight protection."

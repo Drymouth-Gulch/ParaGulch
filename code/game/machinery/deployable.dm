@@ -1,3 +1,11 @@
+#define SINGLE "single"
+#define VERTICAL "vertical"
+#define HORIZONTAL "horizontal"
+
+#define METAL 1
+#define WOOD 2
+#define SAND 3
+
 /*
 CONTAINS:
 
@@ -56,11 +64,24 @@ for reference:
 
 //Barricades, maybe there will be a metal one later...
 /obj/structure/barricade
+	name = "chest high wall"
+	desc = "Looks like this would make good cover."
 	anchored = 1.0
 	density = 1.0
 	var/health = 100.0
 	var/maxhealth = 100.0
 	var/stacktype = /obj/item/stack/sheet/metal
+	var/proj_pass_rate = 50 //How many projectiles will pass the cover. Lower means stronger cover
+	var/ranged_damage_modifier = 1 //Multiply for ranged damage
+	var/material = METAL
+	var/debris_type
+
+
+
+
+
+
+
 
 /obj/structure/barricade/attackby(obj/item/W as obj, mob/user as mob, params)
 	if(istype(W, stacktype))
@@ -120,6 +141,17 @@ for reference:
 		return 1
 	if(istype(mover) && mover.checkpass(PASSTABLE))
 		return 1
+
+	if(istype(mover, /obj/item/projectile))
+		if(!anchored)
+			return 1
+		var/obj/item/projectile/proj = mover
+		if(proj.firer && Adjacent(proj.firer))
+			return 1
+		if(prob(proj_pass_rate))
+			return 1
+		return 0
+
 	else
 		return 0
 
@@ -282,3 +314,11 @@ for reference:
 		explosion(src.loc,-1,-1,0)
 		if(src)
 			qdel(src)
+
+#undef SINGLE
+#undef VERTICAL
+#undef HORIZONTAL
+
+#undef METAL
+#undef WOOD
+#undef SAND
