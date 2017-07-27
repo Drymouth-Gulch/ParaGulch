@@ -7,6 +7,7 @@
 	var/parts[] = list() //type paths of items that will be placed in the result
 	var/chem_catalysts[] = list() //like tools but for reagents
 	var/category = CAT_MISC // Recipe category
+	var/show = 1
 
 /datum/crafting_recipe/proc/AdjustChems(var/obj/resultobj as obj)
 	//This proc is to replace the make_food proc of recipes from microwaves and such that are being converted to table crafting recipes.
@@ -354,3 +355,235 @@
 	reqs = list(/obj/item/weapon/grown/log = 5)
 	result = /obj/structure/bonfire
 	category = CAT_PRIMAL
+
+//////// LEGION
+
+/datum/table_recipe/legion_encryption_key
+	name = "Legion encryption key"
+	result = /obj/item/device/encryptionkey/headset_leg
+	reqs = list(/obj/item/stack/cable_coil = 2,
+				/obj/item/stack/sheet/metal = 1)
+	tools = list(/obj/item/weapon/screwdriver, /obj/item/weapon/wirecutters)
+	time = 120
+	show = 0
+	category = CAT_MISC
+
+/datum/table_recipe/legion_recruit_armor
+	name = "Legion recruit clothing"
+	result = /obj/item/clothing/suit/armor/f13/legrecruit
+	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
+				/obj/item/stack/sheet/metal = 2)
+	tools = list(/obj/item/weapon/screwdriver, /obj/item/weapon/wirecutters)
+	time = 120
+	show = 0
+	category = CAT_ARMOR
+
+/datum/table_recipe/legion_recruit_helm
+	name = "Legion recruit helmet"
+	result = /obj/item/clothing/head/helmet/f13/legrecruit
+	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
+				/obj/item/stack/sheet/metal = 2)
+	tools = list(/obj/item/weapon/screwdriver, /obj/item/weapon/wirecutters)
+	time = 120
+	show = 0
+	category = CAT_ARMOR
+
+/datum/table_recipe/legion_vex_armor
+	name = "Legion vexillarius clothing"
+	result = /obj/item/clothing/suit/armor/f13/legvexil
+	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
+				/obj/item/stack/sheet/metal = 2)
+	tools = list(/obj/item/weapon/screwdriver, /obj/item/weapon/wirecutters)
+	time = 120
+	show = 0
+	category = CAT_ARMOR
+
+/datum/table_recipe/legion_vex_helm
+	name = "Legion vexillarius helmet"
+	result = /obj/item/clothing/head/helmet/f13/legvexil
+	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
+				/obj/item/stack/sheet/metal = 2)
+	tools = list(/obj/item/weapon/screwdriver, /obj/item/weapon/wirecutters)
+	time = 120
+	show = 0
+	category = CAT_ARMOR
+
+/datum/table_recipe/legion_cent_armor
+	name = "Legion centurion clothing"
+	result = /obj/item/clothing/suit/armor/f13/legcenturion
+	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
+				/obj/item/stack/sheet/metal = 2)
+	tools = list(/obj/item/weapon/screwdriver, /obj/item/weapon/wirecutters)
+	time = 120
+	show = 0
+	category = CAT_ARMOR
+
+/datum/table_recipe/legion_cent_helm
+	name = "Legion centurion helmet"
+	result = /obj/item/clothing/head/helmet/f13/legcenturion
+	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
+				/obj/item/stack/sheet/metal = 2)
+	tools = list(/obj/item/weapon/screwdriver, /obj/item/weapon/wirecutters)
+	time = 120
+	show = 0
+	category = CAT_ARMOR
+
+/datum/table_recipe/legion_legat_armor
+	name = "Legion legat clothing"
+	result = /obj/item/clothing/suit/armor/f13/leglegat
+	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
+				/obj/item/stack/sheet/metal = 2)
+	tools = list(/obj/item/weapon/screwdriver, /obj/item/weapon/wirecutters)
+	time = 120
+	show = 0
+	category = CAT_ARMOR
+
+/datum/table_recipe/legion_legat_helm
+	name = "Legion legat helmet"
+	result = /obj/item/clothing/head/helmet/f13/leglegat
+	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
+				/obj/item/stack/sheet/metal = 2)
+	tools = list(/obj/item/weapon/screwdriver, /obj/item/weapon/wirecutters)
+	time = 120
+	show = 0
+	category = CAT_ARMOR
+
+/datum/table_recipe/legion_legat_gloves
+	name = "Legion legat gloves"
+	result = /obj/item/clothing/gloves/f13/legionlegat
+	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
+				/obj/item/stack/sheet/metal = 2)
+	tools = list(/obj/item/weapon/screwdriver, /obj/item/weapon/wirecutters)
+	time = 120
+	show = 0
+	category = CAT_ARMOR
+
+/datum/table_recipe/legion_legat_shoes
+	name = "Legion legat shoes"
+	result = /obj/item/clothing/shoes/legionlegat
+	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
+				/obj/item/stack/sheet/metal = 2)
+	tools = list(/obj/item/weapon/screwdriver, /obj/item/weapon/wirecutters)
+	time = 120
+	show = 0
+	category = CAT_ARMOR
+
+/////// NCR
+
+/datum/table_recipe/ncr_encryption_key
+	name = "NCR encryption key"
+	result = /obj/item/device/encryptionkey/headset_ncr
+	reqs = list(/obj/item/stack/cable_coil = 2,
+				/obj/item/stack/sheet/metal = 1)
+	tools = list(/obj/item/weapon/screwdriver, /obj/item/weapon/wirecutters)
+	time = 120
+	show = 0
+	category = CAT_MISC
+
+/datum/table_recipe/ncr_combat_armor
+	name = "NCR recruit armor"
+	result = /obj/item/clothing/suit/armor/f13/ncrarmor
+	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
+				/obj/item/stack/sheet/metal = 2)
+	tools = list(/obj/item/weapon/screwdriver, /obj/item/weapon/wirecutters)
+	time = 120
+	show = 0
+	category = CAT_ARMOR
+
+/datum/table_recipe/ncr_ranger_armor
+	name = "NCR ranger armor"
+	result = /obj/item/clothing/suit/armor/f13/rangercombat
+	reqs = list(/obj/item/stack/sheet/gekkonhide = 3,
+				/obj/item/stack/sheet/metal = 8)
+	tools = list(/obj/item/weapon/screwdriver, /obj/item/weapon/wirecutters)
+	time = 120
+	show = 0
+	category = CAT_ARMOR
+
+/datum/table_recipe/ncr_ranger_helm
+	name = "NCR ranger helmet"
+	result = /obj/item/clothing/head/helmet/f13/rangercombat
+	reqs = list(/obj/item/stack/sheet/gekkonhide = 3,
+				/obj/item/stack/sheet/metal = 8)
+	tools = list(/obj/item/weapon/screwdriver, /obj/item/weapon/wirecutters)
+	time = 120
+	show = 0
+	category = CAT_ARMOR
+
+////// BoS
+
+/datum/table_recipe/paholodisk
+	name = "Power Armor Training Disk"
+	result = /obj/item/weapon/holodisk/powerarmor
+	reqs = list(/obj/item/stack/cable_coil = 5,
+				/obj/item/stack/sheet/metal = 10)
+	tools = list(/obj/item/device/multitool, /obj/item/weapon/wirecutters)
+	time = 60
+	show = 0
+	category = CAT_MISC
+
+/////// DEN
+
+/datum/table_recipe/den_encryption_key
+	name = "Den encryption key"
+	result = /obj/item/device/encryptionkey/headset_den
+	reqs = list(/obj/item/stack/cable_coil = 2,
+				/obj/item/stack/sheet/metal = 1)
+	tools = list(/obj/item/weapon/screwdriver, /obj/item/weapon/wirecutters)
+	time = 120
+	show = 0
+	category = CAT_MISC
+
+/////// Vault
+
+/datum/table_recipe/vlt_encryption_key
+	name = "Vault encryption key"
+	result = /obj/item/device/encryptionkey/headset_vlt
+	reqs = list(/obj/item/stack/cable_coil = 2,
+				/obj/item/stack/sheet/metal = 1)
+	tools = list(/obj/item/weapon/screwdriver, /obj/item/weapon/wirecutters)
+	time = 120
+	show = 0
+	category = CAT_MISC
+
+/////// RAIDERS
+
+/datum/table_recipe/raider_yankee_armor
+	name = "raider yankee armor"
+	result = /obj/item/clothing/suit/armor/f13/raider/yankee
+	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
+				/obj/item/stack/sheet/metal = 5)
+	tools = list(/obj/item/weapon/screwdriver, /obj/item/weapon/wirecutters)
+	time = 120
+	show = 0
+	category = CAT_ARMOR
+
+/datum/table_recipe/raider_supafly_armor
+	name = "raider supa-fly armor"
+	result = /obj/item/clothing/suit/armor/f13/raider
+	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
+				/obj/item/stack/sheet/metal = 5)
+	tools = list(/obj/item/weapon/screwdriver, /obj/item/weapon/wirecutters)
+	time = 120
+	show = 0
+	category = CAT_ARMOR
+
+/datum/table_recipe/raider_supafly_helmet
+	name = "raider supa-fly helmet"
+	result =/obj/item/clothing/head/helmet/f13/raider
+	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
+				/obj/item/stack/sheet/metal = 5)
+	tools = list(/obj/item/weapon/screwdriver, /obj/item/weapon/wirecutters)
+	time = 120
+	show = 0
+	category = CAT_ARMOR
+
+/datum/table_recipe/raider_yankee_helmet
+	name = "raider yankee yankee"
+	result = /obj/item/clothing/head/helmet/f13/raider/yankee
+	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
+				/obj/item/stack/sheet/metal = 5)
+	tools = list(/obj/item/weapon/screwdriver, /obj/item/weapon/wirecutters)
+	time = 120
+	show = 0
+	category = CAT_ARMOR
