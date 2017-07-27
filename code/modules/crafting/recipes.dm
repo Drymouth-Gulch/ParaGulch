@@ -358,7 +358,7 @@
 
 //////// LEGION
 
-/datum/table_recipe/legion_encryption_key
+/datum/crafting_recipe/legion_encryption_key
 	name = "Legion encryption key"
 	result = /obj/item/device/encryptionkey/headset_leg
 	reqs = list(/obj/item/stack/cable_coil = 2,
@@ -368,7 +368,7 @@
 	show = 0
 	category = CAT_MISC
 
-/datum/table_recipe/legion_recruit_armor
+/datum/crafting_recipe/legion_recruit_armor
 	name = "Legion recruit clothing"
 	result = /obj/item/clothing/suit/armor/f13/legrecruit
 	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
@@ -378,7 +378,7 @@
 	show = 0
 	category = CAT_ARMOR
 
-/datum/table_recipe/legion_recruit_helm
+/datum/crafting_recipe/legion_recruit_helm
 	name = "Legion recruit helmet"
 	result = /obj/item/clothing/head/helmet/f13/legrecruit
 	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
@@ -388,7 +388,7 @@
 	show = 0
 	category = CAT_ARMOR
 
-/datum/table_recipe/legion_vex_armor
+/datum/crafting_recipe/legion_vex_armor
 	name = "Legion vexillarius clothing"
 	result = /obj/item/clothing/suit/armor/f13/legvexil
 	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
@@ -398,7 +398,7 @@
 	show = 0
 	category = CAT_ARMOR
 
-/datum/table_recipe/legion_vex_helm
+/datum/crafting_recipe/legion_vex_helm
 	name = "Legion vexillarius helmet"
 	result = /obj/item/clothing/head/helmet/f13/legvexil
 	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
@@ -408,7 +408,7 @@
 	show = 0
 	category = CAT_ARMOR
 
-/datum/table_recipe/legion_cent_armor
+/datum/crafting_recipe/legion_cent_armor
 	name = "Legion centurion clothing"
 	result = /obj/item/clothing/suit/armor/f13/legcenturion
 	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
@@ -418,7 +418,7 @@
 	show = 0
 	category = CAT_ARMOR
 
-/datum/table_recipe/legion_cent_helm
+/datum/crafting_recipe/legion_cent_helm
 	name = "Legion centurion helmet"
 	result = /obj/item/clothing/head/helmet/f13/legcenturion
 	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
@@ -428,7 +428,7 @@
 	show = 0
 	category = CAT_ARMOR
 
-/datum/table_recipe/legion_legat_armor
+/datum/crafting_recipe/legion_legat_armor
 	name = "Legion legat clothing"
 	result = /obj/item/clothing/suit/armor/f13/leglegat
 	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
@@ -438,7 +438,7 @@
 	show = 0
 	category = CAT_ARMOR
 
-/datum/table_recipe/legion_legat_helm
+/datum/crafting_recipe/legion_legat_helm
 	name = "Legion legat helmet"
 	result = /obj/item/clothing/head/helmet/f13/leglegat
 	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
@@ -448,7 +448,7 @@
 	show = 0
 	category = CAT_ARMOR
 
-/datum/table_recipe/legion_legat_gloves
+/datum/crafting_recipe/legion_legat_gloves
 	name = "Legion legat gloves"
 	result = /obj/item/clothing/gloves/f13/legionlegat
 	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
@@ -458,7 +458,7 @@
 	show = 0
 	category = CAT_ARMOR
 
-/datum/table_recipe/legion_legat_shoes
+/datum/crafting_recipe/legion_legat_shoes
 	name = "Legion legat shoes"
 	result = /obj/item/clothing/shoes/legionlegat
 	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
@@ -470,7 +470,7 @@
 
 /////// NCR
 
-/datum/table_recipe/ncr_encryption_key
+/datum/crafting_recipe/ncr_encryption_key
 	name = "NCR encryption key"
 	result = /obj/item/device/encryptionkey/headset_ncr
 	reqs = list(/obj/item/stack/cable_coil = 2,
@@ -480,7 +480,7 @@
 	show = 0
 	category = CAT_MISC
 
-/datum/table_recipe/ncr_combat_armor
+/datum/crafting_recipe/ncr_combat_armor
 	name = "NCR recruit armor"
 	result = /obj/item/clothing/suit/armor/f13/ncrarmor
 	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
@@ -490,7 +490,7 @@
 	show = 0
 	category = CAT_ARMOR
 
-/datum/table_recipe/ncr_ranger_armor
+/datum/crafting_recipe/ncr_ranger_armor
 	name = "NCR ranger armor"
 	result = /obj/item/clothing/suit/armor/f13/rangercombat
 	reqs = list(/obj/item/stack/sheet/gekkonhide = 3,
@@ -500,7 +500,7 @@
 	show = 0
 	category = CAT_ARMOR
 
-/datum/table_recipe/ncr_ranger_helm
+/datum/crafting_recipe/ncr_ranger_helm
 	name = "NCR ranger helmet"
 	result = /obj/item/clothing/head/helmet/f13/rangercombat
 	reqs = list(/obj/item/stack/sheet/gekkonhide = 3,
@@ -512,7 +512,7 @@
 
 ////// BoS
 
-/datum/table_recipe/paholodisk
+/datum/crafting_recipe/paholodisk
 	name = "Power Armor Training Disk"
 	result = /obj/item/weapon/holodisk/powerarmor
 	reqs = list(/obj/item/stack/cable_coil = 5,
@@ -524,7 +524,7 @@
 
 /////// DEN
 
-/datum/table_recipe/den_encryption_key
+/datum/crafting_recipe/den_encryption_key
 	name = "Den encryption key"
 	result = /obj/item/device/encryptionkey/headset_den
 	reqs = list(/obj/item/stack/cable_coil = 2,
@@ -536,7 +536,7 @@
 
 /////// Vault
 
-/datum/table_recipe/vlt_encryption_key
+/datum/crafting_recipe/vlt_encryption_key
 	name = "Vault encryption key"
 	result = /obj/item/device/encryptionkey/headset_vlt
 	reqs = list(/obj/item/stack/cable_coil = 2,
@@ -548,7 +548,7 @@
 
 /////// RAIDERS
 
-/datum/table_recipe/raider_yankee_armor
+/datum/crafting_recipe/raider_yankee_armor
 	name = "raider yankee armor"
 	result = /obj/item/clothing/suit/armor/f13/raider/yankee
 	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
@@ -558,7 +558,7 @@
 	show = 0
 	category = CAT_ARMOR
 
-/datum/table_recipe/raider_supafly_armor
+/datum/crafting_recipe/raider_supafly_armor
 	name = "raider supa-fly armor"
 	result = /obj/item/clothing/suit/armor/f13/raider
 	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
@@ -568,7 +568,7 @@
 	show = 0
 	category = CAT_ARMOR
 
-/datum/table_recipe/raider_supafly_helmet
+/datum/crafting_recipe/raider_supafly_helmet
 	name = "raider supa-fly helmet"
 	result =/obj/item/clothing/head/helmet/f13/raider
 	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
@@ -578,7 +578,7 @@
 	show = 0
 	category = CAT_ARMOR
 
-/datum/table_recipe/raider_yankee_helmet
+/datum/crafting_recipe/raider_yankee_helmet
 	name = "raider yankee yankee"
 	result = /obj/item/clothing/head/helmet/f13/raider/yankee
 	reqs = list(/obj/item/stack/sheet/gekkonhide = 1,
