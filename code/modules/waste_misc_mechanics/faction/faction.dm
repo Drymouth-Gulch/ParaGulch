@@ -164,7 +164,7 @@ mob/proc/set_faction(var/faction)
 	color = "#005A20"
 	head_status = "Overseer"
 	verbs = list(/mob/proc/begin_head_voting)
-	craft_recipes = list(/datum/table_recipe/vlt_encryption_key)
+	craft_recipes = list(/datum/crafting_recipe/vlt_encryption_key)
 /datum/f13_faction/ncr
 	name = "NCR"
 	first_spawn = 1
@@ -177,7 +177,7 @@ mob/proc/set_faction(var/faction)
 1. As a Trooper in the NCR, your goal is to capture the area so that the NCR may profit from it.<br>\
 2. However, NCR troopers are typically fairly poorly trained, and often drafted against their will.<br>\
 3. Feel free to explore the potential characters that this guideline allows, so long as you aren't being a cunt.<br>"
-	craft_recipes = list(/datum/table_recipe/ncr_combat_armor, /datum/table_recipe/ncr_encryption_key)
+	craft_recipes = list(/datum/crafting_recipe/ncr_combat_armor, /datum/crafting_recipe/ncr_encryption_key)
 /datum/f13_faction/legion
 	name = "Legion"
 	first_spawn = 1
@@ -185,8 +185,8 @@ mob/proc/set_faction(var/faction)
 	head_status = "Centurion"
 	color = "#C24D44"
 	flag = "legion"
-	craft_recipes = list(/datum/table_recipe/legion_recruit_armor, /datum/table_recipe/legion_recruit_helm, \
-						 /datum/table_recipe/legion_encryption_key)
+	craft_recipes = list(/datum/crafting_recipe/legion_recruit_armor, /datum/crafting_recipe/legion_recruit_helm, \
+						 /datum/crafting_recipe/legion_encryption_key)
 	welcome_text = "Tips for playing Legion:<br>\
 	1. As a member of The Legion, your goal is to purge the area of Profligates and capture the land for Caesar.<br>\
 	2. You cannot use advanced medicine and most advanced technology. Autolathes and machine guns are okay, anything more advanced will result in being spoken to.<br>\
@@ -201,7 +201,7 @@ mob/proc/set_faction(var/faction)
 	late_join = 1
 	head_status = "Sheriff"
 	verbs = list(/mob/proc/begin_head_voting)
-	craft_recipes = list(/datum/table_recipe/den_encryption_key)
+	craft_recipes = list(/datum/crafting_recipe/den_encryption_key)
 
 datum/f13_faction/BOS
 	name = "BOS"
@@ -215,4 +215,4 @@ datum/f13_faction/BOS
 1. As a member of the Brotherhood of Steel your job is to find and protect advanced pre-war tech from the savage Wastelanders that would abuse it.<br>\
 2. You value advanced military hardware above almost anything else, and would be difficult to persuade in pursuing anything else.<br>\
 3. The Brotherhood of Steel rarely recruits outsiders, however, they are in fairly desperate times. Who knows what they might do in order to survive?.<br>"
-	craft_recipes = list(/datum/table_recipe/ncr_combat_armor, /datum/table_recipe/ncr_encryption_key, /datum/table_recipe/paholodisk)
+	craft_recipes = list(/datum/crafting_recipe/ncr_combat_armor, /datum/crafting_recipe/ncr_encryption_key, /datum/crafting_recipe/paholodisk)
