@@ -248,7 +248,7 @@
 	var/list/cant_craft = list()
 	for(var/rec in crafting_recipes)
 		var/datum/crafting_recipe/R = rec
-		if(R.category != cur_category)
+		if(R.category != cur_category || R.type in user.allow_recipes)
 			continue
 		if(check_contents(R, surroundings))
 			can_craft += list(build_recipe_data(R))
