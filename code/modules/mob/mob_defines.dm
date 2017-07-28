@@ -105,7 +105,9 @@
 	var/emote_cd = 0		// Used to supress emote spamming. 1 if on CD, 2 if disabled by admin (manually set), else 0
 
 	var/job = null//Living
-
+	var/status = null
+	var/list/allow_recipes = list()
+	
 	var/datum/dna/dna = null//Carbon
 	var/radiation = 0 //Carbon
 
