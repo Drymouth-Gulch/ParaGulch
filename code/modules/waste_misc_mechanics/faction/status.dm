@@ -1,4 +1,3 @@
-/*
 var/human_status = list()
 
 proc/get_status_datum(status)
@@ -189,5 +188,3 @@ mob/proc/set_status(var/status)
 	can_invite_to = list("Member")
 	purge_faction = "Vault"
 	color = "#00491A"
-
-*/
