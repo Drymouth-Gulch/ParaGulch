@@ -121,26 +121,26 @@ mob/proc/set_status(var/status)
 	name = "Vexillarius"
 	change_faction = 1
 	can_invite_to = list("Recruit", "Decan")
-	craft_recipes = list(/datum/table_recipe/legion_vex_armor, /datum/table_recipe/legion_vex_helm)
+	craft_recipes = list(/datum/crafting_recipe/legion_vex_armor, /datum/crafting_recipe/legion_vex_helm)
 	color = "#983C36"
 /datum/status/legion/centurion
 	name = "Centurion"
 	change_faction = 1
 	can_invite_to = list("Recruit", "Decan", "Vexillarius")
-	craft_recipes = list(/datum/table_recipe/legion_cent_armor, /datum/table_recipe/legion_cent_helm)
+	craft_recipes = list(/datum/crafting_recipe/legion_cent_armor, /datum/crafting_recipe/legion_cent_helm)
 	color = "#8D3731"
 /datum/status/legion/legat
 	name = "Legat"
 	change_faction = 1
 	can_invite_to = list("Recruit", "Decan", "Vexillarius", "Legat")
-	craft_recipes = list(/datum/table_recipe/legion_legat_armor, /datum/table_recipe/legion_legat_helm, \
-	/datum/table_recipe/legion_legat_gloves, /datum/table_recipe/legion_legat_shoes)
+	craft_recipes = list(/datum/crafting_recipe/legion_legat_armor, /datum/crafting_recipe/legion_legat_helm, \
+	/datum/crafting_recipe/legion_legat_gloves, /datum/crafting_recipe/legion_legat_shoes)
 	color = "#7A302A"
 /datum/status/ncr/ranger
 	name = "Ranger"
 	change_faction = 1
 //	can_invite_to = list("Recruit")
-	craft_recipes = list(/datum/table_recipe/ncr_ranger_helm, /datum/table_recipe/ncr_ranger_armor)
+	craft_recipes = list(/datum/crafting_recipe/ncr_ranger_helm, /datum/crafting_recipe/ncr_ranger_armor)
 	color = "#020070"
 
 /datum/status/ncr/squad_leader
@@ -165,8 +165,8 @@ mob/proc/set_status(var/status)
 	purge_faction = "Wasteland"
 	can_invite_to_himself = 1
 	color = "#FF0000"
-	craft_recipes = list(/datum/table_recipe/raider_yankee_armor, /datum/table_recipe/raider_supafly_armor, \
-	/datum/table_recipe/raider_supafly_helmet, /datum/table_recipe/raider_yankee_helmet)
+	craft_recipes = list(/datum/crafting_recipe/raider_yankee_armor, /datum/crafting_recipe/raider_supafly_armor, \
+	/datum/crafting_recipe/raider_supafly_helmet, /datum/crafting_recipe/raider_yankee_helmet)
 
 /datum/status/wastelander
 	name = "Wastelander"
