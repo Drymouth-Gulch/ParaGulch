@@ -1,155 +1,144 @@
+var/const/NCR					=(1<<0)
+var/const/NCRCOLONEL			=(1<<0) //Job commented out under Code/Job/Job/NewNCR
+var/const/NCRMAJOR			    =(1<<1) //Major now under title of Captain - Naming needs to be tidied up still.
+var/const/NCRLIEUTENANT      	=(1<<2)
+var/const/NCRSERGEANT        	=(1<<3)
+var/const/NCRTROOPER        	=(1<<4)
+var/const/NCRRECRUIT        	=(1<<5)
+var/const/NCRVETRANGER			=(1<<6)
+var/const/NCRRANGER       		=(1<<7)
+var/const/NCRRECRANGER			=(1<<8)
 
-var/const/ENGSEC			=(1<<0)
+var/const/LEGION			=(1<<1)
+var/const/LEGLEGAT			=(1<<0) //Job commented out under Code/Job/Job/NewLegion
+var/const/LEGCENTURION		=(1<<1)
+var/const/LEGVEX			=(1<<2)
+var/const/LEGDECAN			=(1<<3)
+var/const/LEGVET			=(1<<4)
+var/const/LEGIONARY			=(1<<5)
 
-var/const/CAPTAIN			=(1<<0)
-var/const/HOS				=(1<<1)
-var/const/WARDEN			=(1<<2)
-var/const/DETECTIVE			=(1<<3)
-var/const/OFFICER			=(1<<4)
-var/const/CHIEF				=(1<<5)
-var/const/ENGINEER			=(1<<6)
-var/const/ATMOSTECH			=(1<<7)
-var/const/AI				=(1<<8)
-var/const/CYBORG			=(1<<9)
-var/const/CENTCOM			=(1<<10)
+var/const/BOS				=(1<<2)
+var/const/PALADIN			=(1<<0)
+var/const/KNIGHT			=(1<<1)
+var/const/SCRIBE			=(1<<2)
+var/const/INITIATE			=(1<<3)
 
-var/const/MEDSCI			=(1<<1)
+var/const/DEN				=(1<<3)
+var/const/SHERIFF			=(1<<0)
+var/const/SETTLER			=(1<<1)
 
-var/const/RD				=(1<<0)
-var/const/SCIENTIST			=(1<<1)
-var/const/CHEMIST			=(1<<2)
-var/const/CMO				=(1<<3)
-var/const/DOCTOR			=(1<<4)
-var/const/GENETICIST		=(1<<5)
-var/const/VIROLOGIST		=(1<<6)
-var/const/PSYCHIATRIST		=(1<<7)
-var/const/ROBOTICIST		=(1<<8)
-var/const/PARAMEDIC			=(1<<9)
-var/const/CORONER			=(1<<10)
+var/const/VAULT				=(1<<4)
+var/const/OVERSEER			=(1<<0)
+var/const/DOCTOR			=(1<<1)
+var/const/SCIENTIST			=(1<<2)
+var/const/OFFICER			=(1<<3)
+var/const/ENGINEER			=(1<<4)
+var/const/DWELLER			=(1<<5)
+var/const/AI				=(1<<6)
+var/const/CYBORG			=(1<<7)
 
+var/const/WASTELAND			=(1<<5)
+var/const/CULTLEADER		=(1<<1)
+var/const/WASTELANDER		=(1<<2)
+var/const/RAIDER			=(1<<3)
+var/const/WHORE				=(1<<4)
+var/const/PUSHER			=(1<<5)
+var/const/PREACHER			=(1<<6)
 
-var/const/SUPPORT			=(1<<2)
+var/const/ENCLAVE		=(1<<6)
+var/const/USCOMMANDER	=(1<<0)
+var/const/USMEDIC		=(1<<1)
+var/const/USPRIVATE		=(1<<2)
+var/const/USSCIENTIST	=(1<<3)
+var/const/USENGINEER	=(1<<4)
+var/const/USCOLONIST	=(1<<5)
 
-var/const/HOP				=(1<<0)
-var/const/BARTENDER			=(1<<1)
-var/const/BOTANIST			=(1<<2)
-var/const/CHEF				=(1<<3)
-var/const/JANITOR			=(1<<4)
-var/const/LIBRARIAN			=(1<<5)
-var/const/QUARTERMASTER		=(1<<6)
-var/const/CARGOTECH			=(1<<7)
-var/const/MINER				=(1<<8)
-var/const/LAWYER			=(1<<9)
-var/const/CHAPLAIN			=(1<<10)
-var/const/CLOWN				=(1<<11)
-var/const/MIME				=(1<<12)
-var/const/CIVILIAN			=(1<<13)
+var/list/assistant_occupations = list()
 
-
-var/const/KARMA				=(1<<3)
-
-var/const/NANO				=(1<<0)
-var/const/BLUESHIELD		=(1<<1)
-var/const/BARBER			=(1<<3)
-var/const/MECHANIC			=(1<<4)
-var/const/BRIGDOC			=(1<<5)
-var/const/JUDGE				=(1<<6)
-var/const/PILOT				=(1<<7)
-
-var/list/assistant_occupations = list(
+var/list/wasteland_occupations = list(
+	"Wastelander",
+	"Raider",
+	"Whore",
+	"Pusher",
+	"Preacher"
 )
 
-
-var/list/command_positions = list(
-	"Captain",
-	"Head of Personnel",
-	"Head of Security",
-	"Chief Engineer",
-	"Research Director",
-	"Chief Medical Officer"
+var/list/legion_positions = list(
+	//"Legat",
+	"Legion Centurion",
+	"Legion Vexillarius",
+	"Legion Decanus",
+	"Veteran Legionnaire",
+	"Legionnaire Recruit"
 )
 
-
-var/list/engineering_positions = list(
-	"Chief Engineer",
-	"Station Engineer",
-	"Life Support Specialist",
-	"Mechanic"
+var/list/ncr_positions = list(
+	"NCR Colonel",
+	"NCR Major",
+	"NCR Lieutenant",
+	"NCR Sergeant",
+	"NCR Trooper",
+	"NCR Recruit",
+	"NCR Veteran Ranger",
+	"NCR Ranger",
+	"NCR Recruit Ranger"
 )
 
-
-var/list/medical_positions = list(
-	"Chief Medical Officer",
-	"Medical Doctor",
-	"Geneticist",
-	"Psychiatrist",
-	"Chemist",
-	"Virologist",
-	"Paramedic",
-	"Coroner"
-)
-
-
-var/list/science_positions = list(
-	"Research Director",
+var/list/vault_occupations = list(
+	"Overseer",
+	"Engineer",
+	"Doctor",
+	"Officer",
 	"Scientist",
-	"Geneticist",	//Part of both medical and science
-	"Roboticist",
+	"Dweller"
 )
 
-//BS12 EDIT
-var/list/support_positions = list(
-	"Head of Personnel",
-	"Bartender",
-	"Botanist",
-	"Chef",
-	"Janitor",
-	"Librarian",
-	"Quartermaster",
-	"Cargo Technician",
-	"Shaft Miner",
-	"Internal Affairs Agent",
-	"Chaplain",
-	"Clown",
-	"Mime",
-	"Barber",
-	"Magistrate",
-	"Nanotrasen Representative",
-	"Blueshield"
+var/list/bos_occupations = list(
+	"BOS Paladin",
+	"BOS Knight",
+	"BOS Scribe",
+	"BOS Initiate"
 )
 
-var/list/supply_positions = list(
-	"Head of Personnel",
-	"Quartermaster",
-	"Cargo Technician",
-	"Shaft Miner"
+var/list/den_occupations = list(
+	"Sheriff",
+	"Settler"
 )
 
-var/list/service_positions = support_positions - supply_positions + list("Head of Personnel")
+var/list/enclave_occupations = list()
+
+var/list/command_positions = list()
 
 
-var/list/security_positions = list(
-	"Head of Security",
-	"Warden",
-	"Detective",
-	"Security Officer",
-	"Brig Physician",
-	"Security Pod Pilot"
-)
+var/list/engineering_positions = list()
 
 
-var/list/civilian_positions = list(
-	"Civilian"
-)
+var/list/medical_positions = list()
+
+
+var/list/science_positions = list()
+
+
+var/list/supply_positions = list()
+
+
+var/list/civilian_positions = list()
+
+
+var/list/security_positions = list()
+
+var/list/service_positions = list()
+
+var/list/support_positions = list()
+
 
 var/list/nonhuman_positions = list(
-	"AI",
-	"Cyborg",
-	"Drone",
-	"pAI"
+	//"AI",
+	//"Cyborg",
+	//"pAI"
 )
-
 var/list/whitelisted_positions = list(
+	/*
 	"Blueshield",
 	"Nanotrasen Representative",
 	"Barber",
@@ -157,6 +146,7 @@ var/list/whitelisted_positions = list(
 	"Brig Physician",
 	"Magistrate",
 	"Security Pod Pilot",
+	*/
 )
 
 

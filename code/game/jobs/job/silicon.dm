@@ -1,12 +1,14 @@
 /datum/job/ai
 	title = "AI"
 	flag = AI
-	department_flag = ENGSEC
+	department_flag = VAULT
+	faction = "Vault"
+	status = "Member"
 	total_positions = 0 // Not used for AI, see is_position_available below and modules/mob/living/silicon/ai/latejoin.dm
 	spawn_positions = 1
 	selection_color = "#ccffcc"
 	supervisors = "your laws"
-	department_head = list("Captain")
+	department_head = list("Overseer")
 	req_admin_notify = 1
 	minimal_player_age = 30
 	exp_requirements = 1200
@@ -23,11 +25,13 @@
 /datum/job/cyborg
 	title = "Cyborg"
 	flag = CYBORG
-	department_flag = ENGSEC
+	department_flag = VAULT
+	faction = "Vault"
+	status = "Member"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "your laws and the AI"	//Nodrak
-	department_head = list("AI")
+	department_head = list("Overseer")
 	selection_color = "#ddffdd"
 	minimal_player_age = 21
 	exp_requirements = 300

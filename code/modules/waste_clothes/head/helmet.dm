@@ -206,7 +206,7 @@ This file contains:
 	invis_view = SEE_INVISIBLE_MINIMUM
 */
 
-/obj/item/clothing/head/ncr
+/obj/item/clothing/head/f13/ncr
 	name = "NCR helmet"
 	desc = "A standard issue NCR combat helmet."
 	icon_state = "ncr_helmet"
@@ -222,7 +222,7 @@ This file contains:
 	item_state = "ncr_beret"
 	armor = list(melee = 25, bullet = 20, laser = 15,energy = 0, bomb = 10, bio = 0, rad = 0)
 
-/obj/item/clothing/head/ranger
+/obj/item/clothing/head/f13/ranger
 	name = "Ranger Hat"
 	desc = "An NCR ranger hat, standard issue amongst all patrol rangers."
 	icon_state = "drill_hat"

@@ -158,6 +158,13 @@ var/world_topic_spam_protect_time = world.timeofday
 	else if("manifest" in input)
 		var/list/positions = list()
 		var/list/set_names = list(
+		/*	"Wasters" = wasteland_occupations,
+			"Vault" = vault_occupations,
+			"Legion" = legion_positions,
+			"NCR" = ncr_positions,
+			"BOS" = bos_occupations,
+			"Den" = den_occupations,
+
 			"heads" = command_positions,
 			"sec" = security_positions,
 			"eng" = engineering_positions,
@@ -166,7 +173,9 @@ var/world_topic_spam_protect_time = world.timeofday
 			"car" = supply_positions,
 			"srv" = service_positions,
 			"civ" = civilian_positions,
+
 			"bot" = nonhuman_positions
+			*/
 		)
 
 		for(var/datum/data/record/t in data_core.general)

@@ -95,21 +95,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	var/silence = 0
 	var/temp = null
 	var/temp_back_screen = NEWSCASTER_MAIN
-	var/list/jobblacklist = list(
-		/datum/job/ai,
-		/datum/job/cyborg,
-		/datum/job/captain,
-		/datum/job/judge,
-		/datum/job/blueshield,
-		/datum/job/nanotrasenrep,
-		/datum/job/pilot,
-		/datum/job/brigdoc,
-		/datum/job/mechanic,
-		/datum/job/barber,
-		/datum/job/chaplain,
-		/datum/job/ntnavyofficer,
-		/datum/job/ntspecops,
-		/datum/job/civilian)
+	var/list/jobblacklist = list()
 
 	var/static/REDACTED = "<b class='bad'>\[REDACTED\]</b>"
 	light_range = 0

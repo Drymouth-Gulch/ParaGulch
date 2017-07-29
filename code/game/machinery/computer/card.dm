@@ -22,28 +22,11 @@ var/time_last_changed_position = 0
 	var/change_position_cooldown = 60
 	// Jobs that do not appear in the list at all.
 	var/list/blacklisted_full = list(
-		/datum/job/ntnavyofficer,
-		/datum/job/ntspecops,
-		/datum/job/civilian
+	//TODO SORT OUT JOB BLACKLIST
 	)
 	// Jobs that appear in the list, and you can prioritize, but not open/close slots for
 	var/list/blacklisted_partial = list(
-		/datum/job/ai,
-		/datum/job/cyborg,
-		/datum/job/captain,
-		/datum/job/hop,
-		/datum/job/hos,
-		/datum/job/chief_engineer,
-		/datum/job/rd,
-		/datum/job/cmo,
-		/datum/job/judge,
-		/datum/job/blueshield,
-		/datum/job/nanotrasenrep,
-		/datum/job/pilot,
-		/datum/job/brigdoc,
-		/datum/job/mechanic,
-		/datum/job/barber,
-		/datum/job/chaplain
+	//TODO SORT OUT JOB BLACKLIST
 	)
 	//The scaling factor of max total positions in relation to the total amount of people on board the station in %
 	var/max_relative_positions = 30 //30%: Seems reasonable, limit of 6 @ 20 players

@@ -157,25 +157,37 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 
 		//Mob preview
 	var/icon/preview_icon = null
-	var/icon/preview_icon_front = null
-	var/icon/preview_icon_side = null
+	//var/icon/preview_icon_front = null
+	//var/icon/preview_icon_side = null
 
 		//Jobs, uses bitflags
-	var/job_support_high = 0
-	var/job_support_med = 0
-	var/job_support_low = 0
+	var/job_ncr_high = 0
+	var/job_ncr_med = 0
+	var/job_ncr_low = 0
 
-	var/job_medsci_high = 0
-	var/job_medsci_med = 0
-	var/job_medsci_low = 0
+	var/job_legion_high = 0
+	var/job_legion_med = 0
+	var/job_legion_low = 0
 
-	var/job_engsec_high = 0
-	var/job_engsec_med = 0
-	var/job_engsec_low = 0
+	var/job_bos_high = 0
+	var/job_bos_med = 0
+	var/job_bos_low = 0
 
-	var/job_karma_high = 0
-	var/job_karma_med = 0
-	var/job_karma_low = 0
+	var/job_wasteland_high = 0
+	var/job_wasteland_med = 0
+	var/job_wasteland_low = 0
+
+	var/job_enclave_high = 0
+	var/job_enclave_med = 0
+	var/job_enclave_low = 0
+
+	var/job_den_high = 0
+	var/job_den_med = 0
+	var/job_den_low = 0
+
+	var/job_vault_high = 0
+	var/job_vault_med = 0
+	var/job_vault_low = 0
 
 	//Keeps track of preferrence for not getting any wanted jobs
 	var/alternate_option = 2
@@ -249,8 +261,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 	if(!user || !user.client)
 		return
 	update_preview_icon()
-	user << browse_rsc(preview_icon_front, "previewicon.png")
-	user << browse_rsc(preview_icon_side, "previewicon2.png")
+	user << browse_rsc(preview_icon, "previewicon.png")
 
 	var/dat = ""
 	dat += "<center>"
@@ -268,7 +279,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 				S = all_species[species]
 				random_character()
 
-			dat += "<div class='statusDisplay' style='max-width: 128px; position: absolute; left: 150px; top: 150px'><img src=previewicon.png class='charPreview'><img src=previewicon2.png class='charPreview'></div>"
+			dat += "<div class='statusDisplay' style='max-width: 128px; position: absolute; left: 150px; top: 150px'><img src=previewicon.png class='charPreview'></div>"
 			dat += "<table width='100%'><tr><td width='405px' height='25px' valign='top'>"
 			dat += "<b>Name: </b>"
 			dat += "<a href='?_src_=prefs;preference=name;task=input'><b>[real_name]</b></a>"
@@ -631,7 +642,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 			var/available_in_days = job.available_in_days(user.client)
 			HTML += "<del>[rank]</del></td><td> \[IN [(available_in_days)] DAYS]</td></tr>"
 			continue
-		if((job_support_low & CIVILIAN) && (rank != "Civilian"))
+		if((job_wasteland_low  & WASTELAND) && (rank != "Wastelander"))
 			HTML += "<font color=orange>[rank]</font></td><td></td></tr>"
 			continue
 		if((rank in command_positions) || (rank == "AI"))//Bold head jobs
@@ -672,8 +683,8 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 
 //			HTML += "<a href='?_src_=prefs;preference=job;task=input;text=[rank]'>"
 
-		if(rank == "Civilian")//Civilian is special
-			if(job_support_low & CIVILIAN)
+		if(rank == "Wastelander")//Civilian is special
+			if(job_wasteland_low & WASTELAND)
 				HTML += " <font color=green>\[Yes]</font></a>"
 			else
 				HTML += " <font color=red>\[No]</font></a>"
@@ -731,72 +742,126 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 
 	if(level == 1) // to high
 		// remove any other job(s) set to high
-		job_support_med |= job_support_high
-		job_engsec_med |= job_engsec_high
-		job_medsci_med |= job_medsci_high
-		job_karma_med |= job_karma_high
-		job_support_high = 0
-		job_engsec_high = 0
-		job_medsci_high = 0
-		job_karma_high = 0
+		job_ncr_med |= job_ncr_high //Godstring removed all this chunk
+		job_bos_med |= job_bos_high
+		job_legion_med |= job_legion_high
+		job_den_med |= job_den_high
+		job_wasteland_med |= job_wasteland_high
+		job_enclave_med |= job_enclave_high
+		job_vault_med |= job_vault_high
 
-	if(job.department_flag == SUPPORT)
-		job_support_low &= ~job.flag
-		job_support_med &= ~job.flag
-		job_support_high &= ~job.flag
+		job_ncr_high = 0
+		job_bos_high = 0
+		job_legion_high = 0
+		job_den_high = 0
+		job_wasteland_high = 0
+		job_enclave_high = 0
+		job_vault_high = 0
 
-		switch(level)
-			if(1)
-				job_support_high |= job.flag
-			if(2)
-				job_support_med |= job.flag
-			if(3)
-				job_support_low |= job.flag
-
-		return 1
-	else if(job.department_flag == ENGSEC)
-		job_engsec_low &= ~job.flag
-		job_engsec_med &= ~job.flag
-		job_engsec_high &= ~job.flag
+	if (job.department_flag == NCR)
+		job_ncr_low &= ~job.flag
+		job_ncr_med &= ~job.flag
+		job_ncr_high &= ~job.flag
 
 		switch(level)
-			if(1)
-				job_engsec_high |= job.flag
-			if(2)
-				job_engsec_med |= job.flag
-			if(3)
-				job_engsec_low |= job.flag
-
-		return 1
-	else if(job.department_flag == MEDSCI)
-		job_medsci_low &= ~job.flag
-		job_medsci_med &= ~job.flag
-		job_medsci_high &= ~job.flag
-
-		switch(level)
-			if(1)
-				job_medsci_high |= job.flag
-			if(2)
-				job_medsci_med |= job.flag
-			if(3)
-				job_medsci_low |= job.flag
-
-		return 1
-	else if(job.department_flag == KARMA)
-		job_karma_low &= ~job.flag
-		job_karma_med &= ~job.flag
-		job_karma_high &= ~job.flag
-
-		switch(level)
-			if(1)
-				job_karma_high |= job.flag
-			if(2)
-				job_karma_med |= job.flag
-			if(3)
-				job_karma_low |= job.flag
+			if (1)
+				job_ncr_high |= job.flag
+			if (2)
+				job_ncr_med |= job.flag
+			if (3)
+				job_ncr_low |= job.flag
 
 		return 1
 
+	else if (job.department_flag == BOS)
+		job_bos_low &= ~job.flag
+		job_bos_med &= ~job.flag
+		job_bos_high &= ~job.flag
+
+		switch(level)
+			if (1)
+				job_bos_high |= job.flag
+			if (2)
+				job_bos_med |= job.flag
+			if (3)
+				job_bos_low |= job.flag
+
+		return 1
+
+	else if (job.department_flag == LEGION)
+		job_legion_low &= ~job.flag
+		job_legion_med &= ~job.flag
+		job_legion_high &= ~job.flag
+
+		switch(level)
+			if (1)
+				job_legion_high |= job.flag
+			if (2)
+				job_legion_med |= job.flag
+			if (3)
+				job_legion_low |= job.flag
+
+		return 1
+
+	else if (job.department_flag == WASTELAND)
+		job_wasteland_low &= ~job.flag
+		job_wasteland_med &= ~job.flag
+		job_wasteland_high &= ~job.flag
+
+		switch(level)
+			if (1)
+				job_wasteland_high |= job.flag
+			if (2)
+				job_wasteland_med |= job.flag
+			if (3)
+				job_wasteland_low |= job.flag
+
+		return 1
+
+	else if (job.department_flag == DEN)
+		job_den_low &= ~job.flag
+		job_den_med &= ~job.flag
+		job_den_high &= ~job.flag
+
+		switch(level)
+			if (1)
+				job_den_high |= job.flag
+			if (2)
+				job_den_med |= job.flag
+			if (3)
+				job_den_low |= job.flag
+
+		return 1
+
+	else if (job.department_flag == ENCLAVE)
+		job_enclave_low &= ~job.flag
+		job_enclave_med &= ~job.flag
+		job_enclave_high &= ~job.flag
+
+		switch(level)
+			if (1)
+				job_enclave_high |= job.flag
+			if (2)
+				job_enclave_med |= job.flag
+			if (3)
+				job_enclave_low |= job.flag
+
+		return 1
+
+	else if (job.department_flag == VAULT)
+		job_vault_low &= ~job.flag
+		job_vault_med &= ~job.flag
+		job_vault_high &= ~job.flag
+
+		switch(level)
+			if (1)
+				job_vault_high |= job.flag
+			if (2)
+				job_vault_med |= job.flag
+			if (3)
+				job_vault_low |= job.flag
+
+		return 1
 	return 0
 
 /datum/preferences/proc/UpdateJobPreference(mob/user, role, desiredLvl)
@@ -812,11 +877,11 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 		ShowChoices(user)
 		return
 
-	if(role == "Civilian")
-		if(job_support_low & job.flag)
-			job_support_low &= ~job.flag
+	if(role == "Wastelander")
+		if(job_wasteland_low & job.flag)
+			job_wasteland_low &= ~job.flag
 		else
-			job_support_low |= job.flag
+			job_wasteland_low |= job.flag
 		SetChoices(user)
 		return 1
 
@@ -905,11 +970,11 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 		ShowChoices(user)
 		return
 
-	if(role == "Civilian")
-		if(job_support_low & job.flag)
-			job_support_low &= ~job.flag
+	if(role == "Wastelander")
+		if(job_wasteland_low & job.flag)
+			job_wasteland_low &= ~job.flag
 		else
-			job_support_low |= job.flag
+			job_wasteland_low |= job.flag
 		SetChoices(user)
 		return 1
 
@@ -926,120 +991,198 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 	return 1
 
 /datum/preferences/proc/ResetJobs()
-	job_support_high = 0
-	job_support_med = 0
-	job_support_low = 0
+	job_ncr_high = 0
+	job_ncr_med = 0
+	job_ncr_low = 0
 
-	job_medsci_high = 0
-	job_medsci_med = 0
-	job_medsci_low = 0
+	job_legion_high = 0
+	job_legion_med = 0
+	job_legion_low = 0
 
-	job_engsec_high = 0
-	job_engsec_med = 0
-	job_engsec_low = 0
+	job_bos_high = 0
+	job_bos_med = 0
+	job_bos_low = 0
 
-	job_karma_high = 0
-	job_karma_med = 0
-	job_karma_low = 0
+	job_wasteland_high = 0
+	job_wasteland_med = 0
+	job_wasteland_low = 0
+
+	job_enclave_high = 0
+	job_enclave_med = 0
+	job_enclave_low = 0
+
+	job_den_high = 0
+	job_den_med = 0
+	job_den_low = 0
+
+	job_vault_high = 0
+	job_vault_med = 0
+	job_vault_low = 0
 
 
 /datum/preferences/proc/GetJobDepartment(var/datum/job/job, var/level)
 	if(!job || !level)	return 0
 	switch(job.department_flag)
-		if(SUPPORT)
+		if(NCR)
 			switch(level)
 				if(1)
-					return job_support_high
+					return job_ncr_high
 				if(2)
-					return job_support_med
+					return job_ncr_med
 				if(3)
-					return job_support_low
-		if(MEDSCI)
+					return job_ncr_low
+		if(LEGION)
 			switch(level)
 				if(1)
-					return job_medsci_high
+					return job_legion_high
 				if(2)
-					return job_medsci_med
+					return job_legion_med
 				if(3)
-					return job_medsci_low
-		if(ENGSEC)
+					return job_legion_low
+		if(BOS)
 			switch(level)
 				if(1)
-					return job_engsec_high
+					return job_bos_high
 				if(2)
-					return job_engsec_med
+					return job_bos_med
 				if(3)
-					return job_engsec_low
-		if(KARMA)
+					return job_bos_low
+		if(DEN)
 			switch(level)
 				if(1)
-					return job_karma_high
+					return job_den_high
 				if(2)
-					return job_karma_med
+					return job_den_med
 				if(3)
-					return job_karma_low
+					return job_den_low
+
+		if(WASTELAND)
+			switch(level)
+				if(1)
+					return job_wasteland_high
+				if(2)
+					return job_wasteland_med
+				if(3)
+					return job_wasteland_low
+
+		if(VAULT)
+			switch(level)
+				if(1)
+					return job_vault_high
+				if(2)
+					return job_vault_med
+				if(3)
+					return job_vault_low
+
+		if(ENCLAVE)
+			switch(level)
+				if(1)
+					return job_enclave_high
+				if(2)
+					return job_enclave_med
+				if(3)
+					return job_enclave_low
 	return 0
 
 /datum/preferences/proc/SetJobDepartment(var/datum/job/job, var/level)
 	if(!job || !level)	return 0
 	switch(level)
 		if(1)//Only one of these should ever be active at once so clear them all here
-			job_support_high = 0
-			job_medsci_high = 0
-			job_engsec_high = 0
-			job_karma_high = 0
+			job_ncr_high = 0
+			job_bos_high = 0
+			job_legion_high = 0
+			job_den_high = 0
+			job_wasteland_high = 0
+			job_enclave_high = 0
+			job_vault_high = 0
 			return 1
 		if(2)//Set current highs to med, then reset them
-			job_support_med |= job_support_high
-			job_medsci_med |= job_medsci_high
-			job_engsec_med |= job_engsec_high
-			job_karma_med |= job_karma_high
-			job_support_high = 0
-			job_medsci_high = 0
-			job_engsec_high = 0
-			job_karma_high = 0
+			job_ncr_med |= job_ncr_high
+			job_bos_med |= job_bos_high
+			job_legion_med |= job_legion_high
+			job_den_med |= job_den_high
+			job_wasteland_med |= job_wasteland_high
+			job_enclave_med |= job_enclave_high
+			job_vault_med |= job_vault_high
+			job_ncr_high = 0
+			job_bos_high = 0
+			job_legion_high = 0
+			job_den_high = 0
+			job_wasteland_high = 0
+			job_enclave_high = 0
+			job_vault_high = 0
 
 	switch(job.department_flag)
-		if(SUPPORT)
+		if(NCR)
 			switch(level)
 				if(2)
-					job_support_high = job.flag
-					job_support_med &= ~job.flag
+					job_ncr_high = job.flag
+					job_ncr_med &= ~job.flag
 				if(3)
-					job_support_med |= job.flag
-					job_support_low &= ~job.flag
+					job_ncr_med |= job.flag
+					job_ncr_low &= ~job.flag
 				else
-					job_support_low |= job.flag
-		if(MEDSCI)
+					job_ncr_low |= job.flag
+		if(LEGION)
 			switch(level)
 				if(2)
-					job_medsci_high = job.flag
-					job_medsci_med &= ~job.flag
+					job_legion_high = job.flag
+					job_legion_med &= ~job.flag
 				if(3)
-					job_medsci_med |= job.flag
-					job_medsci_low &= ~job.flag
+					job_legion_med |= job.flag
+					job_legion_low &= ~job.flag
 				else
-					job_medsci_low |= job.flag
-		if(ENGSEC)
+					job_legion_low |= job.flag
+		if(BOS)
 			switch(level)
 				if(2)
-					job_engsec_high = job.flag
-					job_engsec_med &= ~job.flag
+					job_bos_high = job.flag
+					job_bos_med &= ~job.flag
 				if(3)
-					job_engsec_med |= job.flag
-					job_engsec_low &= ~job.flag
+					job_bos_med |= job.flag
+					job_bos_low &= ~job.flag
 				else
-					job_engsec_low |= job.flag
-		if(KARMA)
+					job_bos_low |= job.flag
+		if(DEN)
 			switch(level)
 				if(2)
-					job_karma_high = job.flag
-					job_karma_med &= ~job.flag
+					job_den_high = job.flag
+					job_den_med &= ~job.flag
 				if(3)
-					job_karma_med |= job.flag
-					job_karma_low &= ~job.flag
+					job_den_med |= job.flag
+					job_den_low &= ~job.flag
 				else
-					job_karma_low |= job.flag
+					job_den_low |= job.flag
+		if(WASTELAND)
+			switch(level)
+				if(2)
+					job_wasteland_high = job.flag
+					job_wasteland_med &= ~job.flag
+				if(3)
+					job_wasteland_med |= job.flag
+					job_wasteland_low &= ~job.flag
+				else
+					job_wasteland_low |= job.flag
+		if(VAULT)
+			switch(level)
+				if(2)
+					job_vault_high = job.flag
+					job_vault_med &= ~job.flag
+				if(3)
+					job_vault_med |= job.flag
+					job_vault_low &= ~job.flag
+				else
+					job_vault_low |= job.flag
+		if(ENCLAVE)
+			switch(level)
+				if(2)
+					job_enclave_high = job.flag
+					job_enclave_med &= ~job.flag
+				if(3)
+					job_enclave_med |= job.flag
+					job_enclave_low &= ~job.flag
+				else
+					job_enclave_low |= job.flag
 	return 1
 
 /datum/preferences/proc/process_link(mob/user, list/href_list)

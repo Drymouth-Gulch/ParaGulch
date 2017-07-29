@@ -13,7 +13,8 @@
 	var/department_head = list()
 
 	//Players will be allowed to spawn in as jobs that are set to "Station"
-	var/list/faction = list("Station")
+	var/list/faction = list("Wasteland")
+	var/status = "Wastelander"
 
 	//How many players can be this job
 	var/total_positions = 0
@@ -129,6 +130,13 @@
 	pda = /obj/item/device/pda
 
 	var/list/implants = null
+
+	var/list/simple_start_weapon = list(/obj/item/weapon/crowbar,/obj/item/weapon/golf,
+				/obj/item/weapon/hatchet,/obj/item/weapon/shovel,
+				/obj/item/weapon/wrench,
+				/obj/item/weapon/pipe, /obj/item/weapon/melee/chainofcommand,
+				/obj/item/weapon/gavelhammer,/obj/item/weapon/cultivator,
+				/obj/item/weapon/extinguisher)
 
 	var/backpack = /obj/item/weapon/storage/backpack
 	var/satchel = /obj/item/weapon/storage/backpack/satchel_norm

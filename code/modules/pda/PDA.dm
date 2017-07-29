@@ -9,9 +9,9 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	desc = "A portable microcomputer by Thinktronic Systems, LTD. Functionality determined by a preprogrammed ROM cartridge."
 	icon = 'icons/obj/pda.dmi'
 	icon_state = "pda"
-	item_state = "electronic"
+	item_state = "Pip-boy"
 	w_class = WEIGHT_CLASS_TINY
-	slot_flags = SLOT_ID | SLOT_BELT | SLOT_PDA
+	slot_flags = SLOT_ID | SLOT_BELT | SLOT_PDA | SLOT_GLOVES
 	origin_tech = "programming=2"
 
 	//Main variables
@@ -25,7 +25,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	//Secondary variables
 	var/model_name = "Thinktronic 5230 Personal Data Assistant"
 	var/datum/data/pda/utility/scanmode/scanmode = null
-
+	var/locked_on_hand = 0 //when 1, you can't take it off the hand
 	var/lock_code = "" // Lockcode to unlock uplink
 	var/honkamt = 0 //How many honks left when infected with honk.exe
 	var/mimeamt = 0 //How many silence left when infected with mime.exe
@@ -512,3 +512,18 @@ var/global/list/obj/item/device/pda/PDAs = list()
 /obj/item/device/pda/process()
 	if(current_app)
 		current_app.program_process()
+
+
+
+
+/obj/item/device/pda/verb/toggle_lock()
+	set category = "Object"
+	set name = "Toggle lock"
+	set src in usr
+	if(issilicon(usr))
+		return
+	locked_on_hand = 1 - locked_on_hand;
+	if (locked_on_hand)
+		flags |= NODROP
+	else
+		flags &= ~NODROP

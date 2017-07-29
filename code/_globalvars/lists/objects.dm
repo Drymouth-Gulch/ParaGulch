@@ -3,6 +3,8 @@ var/global/list/cable_list = list()					//Index for all cables, so that powernet
 var/global/list/chemical_reactions_list				//list of all /datum/chemical_reaction datums. Used during chemical reactions
 var/global/list/chemical_reagents_list				//list of all /datum/reagent datums indexed by reagent id. Used by chemistry stuff
 var/global/list/landmarks_list = list()				//list of all landmarks created
+var/global/list/start_landmarks_list = list()			//list of all spawn points created
+var/global/list/department_security_spawns = list()	//list of all department security spawns
 var/global/list/surgery_steps = list()				//list of all surgery steps  |BS12
 var/global/list/side_effects = list()				//list of all medical sideeffects types by thier names |BS12
 var/global/list/mechas_list = list()				//list of all mechs. Used by hostile mobs target tracking.

@@ -155,7 +155,7 @@
 	var/random_crystal = pick(typesof(/obj/machinery/anomalous_crystal) - /obj/machinery/anomalous_crystal/random - /obj/machinery/anomalous_crystal)
 	new random_crystal(loc)
 	qdel(src)
-
+/* No more clouns
 /obj/machinery/anomalous_crystal/honk //Strips and equips you as a clown. I apologize for nothing
 	activation_method = "mob_bump"
 	activation_sound = 'sound/items/bikehorn.ogg'
@@ -168,7 +168,7 @@
 		var/datum/job/clown/C = job_master.GetJob("Clown")
 		C.equip(H)
 		affected_targets.Add(H)
-
+*/
 /obj/machinery/anomalous_crystal/honk/New()
 	..()
 	activation_method = pick("mob_bump","speech")

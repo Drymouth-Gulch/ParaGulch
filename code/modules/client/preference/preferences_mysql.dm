@@ -150,19 +150,6 @@
 					undershirt,
 					backbag,
 					b_type,
-					alternate_option,
-					job_support_high,
-					job_support_med,
-					job_support_low,
-					job_medsci_high,
-					job_medsci_med,
-					job_medsci_low,
-					job_engsec_high,
-					job_engsec_med,
-					job_engsec_low,
-					job_karma_high,
-					job_karma_med,
-					job_karma_low,
 					flavor_text,
 					med_record,
 					sec_record,
@@ -176,7 +163,29 @@
 					socks,
 					body_accessory,
 					gear,
-					autohiss
+					autohiss,
+					alternate_option,
+					job_ncr_high,
+					job_ncr_med,
+					job_ncr_low,
+					job_legion_high,
+					job_legion_med,
+					job_legion_low,
+					job_bos_high,
+					job_bos_med,
+					job_bos_low,
+					job_wasteland_high,
+					job_wasteland_med,
+					job_wasteland_low,
+					job_enclave_high,
+					job_enclave_med,
+					job_enclave_low,
+					job_den_high,
+					job_den_med,
+					job_den_low,
+					job_vault_high,
+					job_vault_med,
+					job_vault_low,
 				 	FROM [format_table_name("characters")] WHERE ckey='[C.ckey]' AND slot='[slot]'"})
 	if(!query.Execute())
 		var/err = query.ErrorMsg()
@@ -229,26 +238,36 @@
 		b_type = query.item[39]
 
 
-		//Jobs
-		alternate_option = text2num(query.item[40])
-		job_support_high = text2num(query.item[41])
-		job_support_med = text2num(query.item[42])
-		job_support_low = text2num(query.item[43])
-		job_medsci_high = text2num(query.item[44])
-		job_medsci_med = text2num(query.item[45])
-		job_medsci_low = text2num(query.item[46])
-		job_engsec_high = text2num(query.item[47])
-		job_engsec_med = text2num(query.item[48])
-		job_engsec_low = text2num(query.item[49])
-		job_karma_high = text2num(query.item[50])
-		job_karma_med = text2num(query.item[51])
-		job_karma_low = text2num(query.item[52])
+		//Jobs -- Moved to end of DB to allow for expansion of departments/factions
+		alternate_option = text2num(query.item[54])
+
+		job_ncr_high = text2num(query.item[55])
+		job_ncr_med = text2num(query.item[56])
+		job_ncr_low = text2num(query.item[57])
+		job_legion_high = text2num(query.item[58])
+		job_legion_med = text2num(query.item[59])
+		job_legion_low = text2num(query.item[60])
+		job_bos_high = text2num(query.item[61])
+		job_bos_med = text2num(query.item[62])
+		job_bos_low = text2num(query.item[63])
+		job_wasteland_high = text2num(query.item[64])
+		job_wasteland_med = text2num(query.item[65])
+		job_wasteland_low = text2num(query.item[66])
+		job_enclave_high = text2num(query.item[67])
+		job_enclave_med = text2num(query.item[68])
+		job_enclave_low = text2num(query.item[69])
+		job_den_high = text2num(query.item[70])
+		job_den_med = text2num(query.item[71])
+		job_den_low = text2num(query.item[72])
+		job_vault_high = text2num(query.item[73])
+		job_vault_med = text2num(query.item[74])
+		job_vault_low = text2num(query.item[75])
 
 		//Miscellaneous
-		flavor_text = query.item[53]
-		med_record = query.item[54]
-		sec_record = query.item[55]
-		gen_record = query.item[56]
+		flavor_text = query.item[40]
+		med_record = query.item[41]
+		sec_record = query.item[42]
+		gen_record = query.item[43]
 		// Apparently, the preceding vars weren't always encoded properly...
 		if(findtext(flavor_text, "<")) // ... so let's clumsily check for tags!
 			flavor_text = html_encode(flavor_text)
@@ -258,18 +277,18 @@
 			sec_record = html_encode(sec_record)
 		if(findtext(gen_record, "<"))
 			gen_record = html_encode(gen_record)
-		disabilities = text2num(query.item[57])
-		player_alt_titles = params2list(query.item[58])
-		organ_data = params2list(query.item[59])
-		rlimb_data = params2list(query.item[60])
-		nanotrasen_relation = query.item[61]
-		speciesprefs = text2num(query.item[62])
+		disabilities = text2num(query.item[44])
+		player_alt_titles = params2list(query.item[45])
+		organ_data = params2list(query.item[46])
+		rlimb_data = params2list(query.item[47])
+		nanotrasen_relation = query.item[48]
+		speciesprefs = text2num(query.item[49])
 
 		//socks
-		socks = query.item[63]
-		body_accessory = query.item[64]
-		gear = params2list(query.item[65])
-		autohiss_mode = text2num(query.item[66])
+		socks = query.item[50]
+		body_accessory = query.item[51]
+		gear = params2list(query.item[52])
+		autohiss_mode = text2num(query.item[53])
 
 	//Sanitize
 	var/datum/species/SP = all_species[species]
@@ -320,18 +339,28 @@
 	autohiss_mode	= sanitize_integer(autohiss_mode, 0, 2, initial(autohiss_mode))
 
 	alternate_option = sanitize_integer(alternate_option, 0, 2, initial(alternate_option))
-	job_support_high = sanitize_integer(job_support_high, 0, 65535, initial(job_support_high))
-	job_support_med = sanitize_integer(job_support_med, 0, 65535, initial(job_support_med))
-	job_support_low = sanitize_integer(job_support_low, 0, 65535, initial(job_support_low))
-	job_medsci_high = sanitize_integer(job_medsci_high, 0, 65535, initial(job_medsci_high))
-	job_medsci_med = sanitize_integer(job_medsci_med, 0, 65535, initial(job_medsci_med))
-	job_medsci_low = sanitize_integer(job_medsci_low, 0, 65535, initial(job_medsci_low))
-	job_engsec_high = sanitize_integer(job_engsec_high, 0, 65535, initial(job_engsec_high))
-	job_engsec_med = sanitize_integer(job_engsec_med, 0, 65535, initial(job_engsec_med))
-	job_engsec_low = sanitize_integer(job_engsec_low, 0, 65535, initial(job_engsec_low))
-	job_karma_high = sanitize_integer(job_karma_high, 0, 65535, initial(job_karma_high))
-	job_karma_med = sanitize_integer(job_karma_med, 0, 65535, initial(job_karma_med))
-	job_karma_low = sanitize_integer(job_karma_low, 0, 65535, initial(job_karma_low))
+
+	job_ncr_high = sanitize_integer(job_ncr_high, 0, 65535, initial(job_ncr_high))
+	job_ncr_med = sanitize_integer(job_ncr_med, 0, 65535, initial(job_ncr_med))
+	job_ncr_low = sanitize_integer(job_ncr_low, 0, 65535, initial(job_ncr_low))
+	job_legion_high = sanitize_integer(job_legion_high, 0, 65535, initial(job_legion_high))
+	job_legion_med = sanitize_integer(job_legion_med, 0, 65535, initial(job_legion_med))
+	job_legion_low = sanitize_integer(job_legion_low, 0, 65535, initial(job_legion_low))
+	job_bos_high = sanitize_integer(job_bos_high, 0, 65535, initial(job_bos_high))
+	job_bos_med = sanitize_integer(job_bos_med, 0, 65535, initial(job_bos_med))
+	job_bos_low = sanitize_integer(job_bos_low, 0, 65535, initial(job_bos_low))
+	job_wasteland_high = sanitize_integer(job_wasteland_high, 0, 65535, initial(job_wasteland_high))
+	job_wasteland_med = sanitize_integer(job_wasteland_med, 0, 65535, initial(job_wasteland_med))
+	job_wasteland_low = sanitize_integer(job_wasteland_low, 0, 65535, initial(job_wasteland_low))
+	job_enclave_high = sanitize_integer(job_enclave_high, 0, 65535, initial(job_enclave_high))
+	job_enclave_med = sanitize_integer(job_enclave_med, 0, 65535, initial(job_enclave_med))
+	job_enclave_low = sanitize_integer(job_enclave_low, 0, 65535, initial(job_enclave_low))
+	job_den_high = sanitize_integer(job_den_high, 0, 65535, initial(job_den_high))
+	job_den_med = sanitize_integer(job_den_med, 0, 65535, initial(job_den_med))
+	job_den_low = sanitize_integer(job_den_low, 0, 65535, initial(job_den_low))
+	job_vault_high = sanitize_integer(job_vault_high, 0, 65535, initial(job_vault_high))
+	job_vault_med = sanitize_integer(job_vault_med, 0, 65535, initial(job_vault_med))
+	job_vault_low = sanitize_integer(job_vault_low, 0, 65535, initial(job_vault_low))
 	disabilities = sanitize_integer(disabilities, 0, 65535, initial(disabilities))
 
 	socks			= sanitize_text(socks, initial(socks))
@@ -405,19 +434,6 @@
 												undershirt='[undershirt]',
 												backbag='[backbag]',
 												b_type='[b_type]',
-												alternate_option='[alternate_option]',
-												job_support_high='[job_support_high]',
-												job_support_med='[job_support_med]',
-												job_support_low='[job_support_low]',
-												job_medsci_high='[job_medsci_high]',
-												job_medsci_med='[job_medsci_med]',
-												job_medsci_low='[job_medsci_low]',
-												job_engsec_high='[job_engsec_high]',
-												job_engsec_med='[job_engsec_med]',
-												job_engsec_low='[job_engsec_low]',
-												job_karma_high='[job_karma_high]',
-												job_karma_med='[job_karma_med]',
-												job_karma_low='[job_karma_low]',
 												flavor_text='[sanitizeSQL(flavor_text)]',
 												med_record='[sanitizeSQL(med_record)]',
 												sec_record='[sanitizeSQL(sec_record)]',
@@ -431,7 +447,29 @@
 												socks='[socks]',
 												body_accessory='[body_accessory]',
 												gear='[gearlist]',
-												autohiss='[autohiss_mode]'
+												autohiss='[autohiss_mode]',
+												alternate_option='[alternate_option]',
+												job_ncr_high='[job_ncr_high]',
+												job_ncr_med='[job_ncr_med]',
+												job_ncr_low='[job_ncr_low]',
+												job_legion_high='[job_legion_high]',
+												job_legion_med='[job_legion_med]',
+												job_legion_low='[job_legion_low]',
+												job_bos_high='[job_bos_high]',
+												job_bos_med='[job_bos_med]',
+												job_bos_low='[job_bos_low]',
+												job_wasteland_high='[job_wasteland_high]',
+												job_wasteland_med='[job_wasteland_med]',
+												job_wasteland_low='[job_wasteland_low]',
+												job_enclave_high='[job_enclave_high]',
+												job_enclave_med='[job_enclave_med]',
+												job_enclave_low='[job_enclave_low]',
+												job_den_high='[job_den_high]',
+												job_den_med='[job_den_med]',
+												job_den_low='[job_den_low]',
+												job_vault_high='[job_vault_high]',
+												job_vault_med='[job_vault_med]',
+												job_vault_low='[job_vault_low]'
 												WHERE ckey='[C.ckey]'
 												AND slot='[default_slot]'"}
 												)
@@ -460,18 +498,21 @@
 											alt_head_name,
 											eyes_red, eyes_green, eyes_blue,
 											underwear, undershirt,
-											backbag, b_type, alternate_option,
-											job_support_high, job_support_med, job_support_low,
-											job_medsci_high, job_medsci_med, job_medsci_low,
-											job_engsec_high, job_engsec_med, job_engsec_low,
-											job_karma_high, job_karma_med, job_karma_low,
+											backbag, b_type,
 											flavor_text,
 											med_record,
 											sec_record,
 											gen_record,
 											player_alt_titles,
 											disabilities, organ_data, rlimb_data, nanotrasen_relation, speciesprefs,
-											socks, body_accessory, gear, autohiss)
+											socks, body_accessory, gear, autohiss,alternate_option,
+											job_ncr_high, job_ncr_med, job_ncr_low,
+											job_legion_high, job_legion_med, job_legion_low,
+											job_bos_high, job_bos_med, job_bos_low,
+											job_wasteland_high, job_wasteland_med, job_wasteland_low,
+											job_enclave_high, job_enclave_med, job_enclave_low,
+											job_den_high, job_den_med, job_den_low,
+											job_vault_high, job_vault_med, job_vault_low)
 
 					VALUES
 											('[C.ckey]', '[default_slot]', '[sanitizeSQL(metadata)]', '[sanitizeSQL(real_name)]', '[be_random_name]','[gender]',
@@ -490,20 +531,21 @@
 											'[sanitizeSQL(alt_head)]',
 											'[r_eyes]', '[g_eyes]', '[b_eyes]',
 											'[underwear]', '[undershirt]',
-											'[backbag]', '[b_type]', '[alternate_option]',
-											'[job_support_high]', '[job_support_med]', '[job_support_low]',
-											'[job_medsci_high]', '[job_medsci_med]', '[job_medsci_low]',
-											'[job_engsec_high]', '[job_engsec_med]', '[job_engsec_low]',
-											'[job_karma_high]', '[job_karma_med]', '[job_karma_low]',
+											'[backbag]', '[b_type]',
 											'[sanitizeSQL(flavor_text)]',
 											'[sanitizeSQL(med_record)]',
 											'[sanitizeSQL(sec_record)]',
 											'[sanitizeSQL(gen_record)]',
 											'[playertitlelist]',
 											'[disabilities]', '[organlist]', '[rlimblist]', '[nanotrasen_relation]', '[speciesprefs]',
-											'[socks]', '[body_accessory]', '[gearlist]', '[autohiss_mode]')
-
-"}
+											'[socks]', '[body_accessory]', '[gearlist]', '[autohiss_mode]','[alternate_option]',
+											'[job_legion_high]', '[job_legion_med]', '[job_legion_low]',
+											'[job_bos_high]', '[job_bos_med], '[job_bos_low]',
+											'[job_wasteland_high]', '[job_wasteland_med]', '[job_wasteland_low]',
+											'[job_enclave_high]', '[job_enclave_med]', '[job_enclave_low]',
+											'[job_den_high]', [job_den_med], [job_den_low]',
+											'[job_vault_high]', '[job_vault_med]', '[job_vault_low]')
+											"}
 )
 
 	if(!query.Execute())

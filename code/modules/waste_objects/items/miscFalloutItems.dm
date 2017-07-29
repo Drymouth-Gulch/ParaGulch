@@ -119,3 +119,27 @@
 		spawn(20)
 			spam_flag = 0
 	return
+
+
+/obj/item/weapon/reagent_containers/food/drinks/flask/survival
+	name = "metal flask"
+	desc = "A metal flask with water, useful in waste's."
+	icon_state = "flask"
+	materials = list(MAT_GLASS=500)
+	volume = 60
+	list_reagents = list("water" = 30, "silver_sulfadiazine" = 20, "charcoal" = 10)
+
+/obj/item/weapon/card/id/ncr
+	desc = "A pair of standard issue NCR dogtags issued to all servicemen."
+	icon_state = "ncr"
+	item_state = "silver_id"
+
+/obj/item/weapon/card/id/ncr/ranger
+	desc = "A ranger pin issue to all NCR Rangers."
+	icon_state = "ranger"
+	item_state = "gold_id"
+
+/obj/item/weapon/card/id/bos
+	desc = "A pair of Brotherhood of Steel holotags."
+	icon_state = "bos"
+	item_state = "gold_id"

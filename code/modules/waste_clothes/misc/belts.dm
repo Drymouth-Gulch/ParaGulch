@@ -6,3 +6,9 @@
 	max_w_class = 3
 	max_combined_w_class = 21
 	storage_slots = 21
+
+/obj/item/weapon/storage/belt/ncr
+	name = "NCR duty belt"
+	desc = "A standard issue robust duty belt for all NCR troopers."
+	icon_state = "ncr_belt"
+	item_state = "ncr_belt"
