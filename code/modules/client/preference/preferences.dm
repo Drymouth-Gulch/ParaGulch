@@ -157,8 +157,8 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 
 		//Mob preview
 	var/icon/preview_icon = null
-	//var/icon/preview_icon_front = null
-	//var/icon/preview_icon_side = null
+	var/icon/preview_icon_front = null
+	var/icon/preview_icon_side = null
 
 		//Jobs, uses bitflags
 	var/job_ncr_high = 0
@@ -261,7 +261,9 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 	if(!user || !user.client)
 		return
 	update_preview_icon()
-	user << browse_rsc(preview_icon, "previewicon.png")
+	//user << browse_rsc(preview_icon, "previewicon.png")
+	user << browse_rsc(preview_icon_front, "previewicon.png")
+	user << browse_rsc(preview_icon_side, "previewicon2.png")
 
 	var/dat = ""
 	dat += "<center>"
@@ -279,7 +281,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 				S = all_species[species]
 				random_character()
 
-			dat += "<div class='statusDisplay' style='max-width: 128px; position: absolute; left: 150px; top: 150px'><img src=previewicon.png class='charPreview'></div>"
+			dat += "<div class='statusDisplay' style='max-width: 128px; position: absolute; left: 150px; top: 150px'><img src=previewicon.png class='charPreview'><img src=previewicon2.png class='charPreview'></div>"
 			dat += "<table width='100%'><tr><td width='405px' height='25px' valign='top'>"
 			dat += "<b>Name: </b>"
 			dat += "<a href='?_src_=prefs;preference=name;task=input'><b>[real_name]</b></a>"
@@ -587,7 +589,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 	metadata["[tweak]"] = new_metadata
 
 
-/datum/preferences/proc/SetChoices(mob/user, limit = 13, list/splitJobs = list("Civilian","Research Director","AI","Bartender"), width = 760, height = 790)
+/datum/preferences/proc/SetChoices(mob/user, limit = 13, list/splitJobs = list("NCR Colonel","Overseer","BOS Paladin","Sheriff"), width = 760, height = 790)
 	if(!job_master)
 		return
 
@@ -642,7 +644,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 			var/available_in_days = job.available_in_days(user.client)
 			HTML += "<del>[rank]</del></td><td> \[IN [(available_in_days)] DAYS]</td></tr>"
 			continue
-		if((job_wasteland_low  & WASTELAND) && (rank != "Wastelander"))
+		if((job_wasteland_low & WASTELAND) && (rank != "Wastelander") && !jobban_isbanned(user, "Wastelander"))
 			HTML += "<font color=orange>[rank]</font></td><td></td></tr>"
 			continue
 		if((rank in command_positions) || (rank == "AI"))//Bold head jobs

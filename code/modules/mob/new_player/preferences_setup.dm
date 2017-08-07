@@ -243,7 +243,7 @@
 				return
 
 	// Set up the dummy for its photoshoot
-	var/mob/living/carbon/human/dummy/mannequin = new()
+	var/mob/living/carbon/human/mannequin = new()
 	copy_to(mannequin)
 
 	// Determine what job is marked as 'High' priority, and dress them up as such.
@@ -277,20 +277,14 @@
 		mannequin.job = previewJob.title
 		previewJob.equip(mannequin, TRUE)
 
-	preview_icon = icon('icons/effects/effects.dmi', "nothing")
-	preview_icon.Scale(48+32, 16+32)
-
-	mannequin.dir = NORTH
-	var/icon/stamp = getFlatIcon(mannequin)
-	preview_icon.Blend(stamp, ICON_OVERLAY, 25, 17)
+//	preview_icon = icon('icons/effects/effects.dmi', "nothing")
+//	preview_icon.Scale(48+32, 16+32)
 
 	mannequin.dir = WEST
-	stamp = getFlatIcon(mannequin)
-	preview_icon.Blend(stamp, ICON_OVERLAY, 1, 9)
+	preview_icon_side = getFlatIcon(mannequin)
 
 	mannequin.dir = SOUTH
-	stamp = getFlatIcon(mannequin)
-	preview_icon.Blend(stamp, ICON_OVERLAY, 49, 1)
+	preview_icon_front = getFlatIcon(mannequin)
 
-	preview_icon.Scale(preview_icon.Width() * 2, preview_icon.Height() * 2) // Scaling here to prevent blurring in the browser.
+//	preview_icon.Scale(preview_icon.Width() * 2, preview_icon.Height() * 2) // Scaling here to prevent blurring in the browser.
 	qdel(mannequin)

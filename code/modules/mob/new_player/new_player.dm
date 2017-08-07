@@ -390,7 +390,7 @@
 		"Science" = list(jobs = list(), titles = science_positions, color = "#e6b3e6"),
 		"Supply" = list(jobs = list(), titles = supply_positions, color = "#ead4ae"),
 		)
-	for(var/datum/job/job in job_master.occupations)
+	for(var/datum/job/job in job_master.desert_occupations)
 		if(job && IsJobAvailable(job.title))
 			activePlayers[job] = 0
 			var/categorized = 0

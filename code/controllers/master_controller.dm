@@ -34,6 +34,8 @@ var/global/pipe_processing_killed = 0
 	if(!job_master)
 		watch = start_watch()
 		job_master = new /datum/controller/occupations()
+		job_master.SetupFaction()
+		job_master.SetupStatus()
 		job_master.SetupOccupations()
 		job_master.LoadJobs("config/jobs.txt")
 		log_startup_progress("Job setup complete in [stop_watch(watch)]s.")
