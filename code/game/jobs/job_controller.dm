@@ -8,6 +8,7 @@ var/global/datum/controller/occupations/job_master
 /datum/controller/occupations
 	//List of all jobs
 	var/list/occupations = list()
+	var/list/desert_occupations = list() //List of all desert 'jobs'
 	var/list/name_occupations = list()	//Dict of all jobs, keys are titles
 	var/list/type_occupations = list()	//Dict of all jobs, keys are types
 	var/list/prioritized_jobs = list() // List of jobs set to priority by HoP/Captain
@@ -16,8 +17,35 @@ var/global/datum/controller/occupations/job_master
 	//Debug info
 	var/list/job_debug = list()
 
+/datum/controller/occupations/proc/SetupFaction()
+	var/list/factions = subtypesof(/datum/f13_faction)
+	for(var/F in factions)
+		var/datum/f13_faction/faction = new F()
+		human_factions[faction.name] = faction
+
+/datum/controller/occupations/proc/SetupStatus()
+	var/list/status = subtypesof(/datum/status)
+	for(var/S in status)
+		var/datum/status/stat = new S()
+		human_status[stat.name] = stat
+
+
+/datum/controller/occupations/proc/SetupDesertOccupations()
+	desert_occupations = list()
+	var/list/all_jobs = subtypesof(/datum/job)
+	for (var/J in all_jobs)
+		var/datum/job/job = new J()
+		if(!job)
+			continue
+		var/datum/f13_faction/faction = get_faction_datum(job.faction)
+		if(job.title == "Legionary Recruit" || job.title == "NCR Recruit")  //I hate myself for this, but it gets the job done for now
+			desert_occupations += job							//This is so legion and ncr recruits can latespawn, faction check in next bit would stop this
+		if(faction == null || !faction.late_join)
+			continue
+		desert_occupations += job
 
 /datum/controller/occupations/proc/SetupOccupations(var/list/faction = list("Station"))
+	SetupDesertOccupations()
 	occupations = list()
 
 	var/list/all_jobs = subtypesof(/datum/job)
@@ -29,7 +57,8 @@ var/global/datum/controller/occupations/job_master
 		var/datum/job/job = new J()
 		if(!job)
 			continue
-		if(!job.faction in faction)
+		var/datum/f13_faction/F = get_faction_datum(job.faction)
+		if(F == null || !F.first_spawn)
 			continue
 		occupations += job
 		name_occupations[job.title] = job
