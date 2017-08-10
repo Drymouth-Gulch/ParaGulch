@@ -283,6 +283,7 @@ This file contains:
 /obj/item/clothing/suit/armor/f13/power_armor
 	unacidable = 1
 	slowdown = 1
+	flags = THICKMATERIAL  //No syringe meme
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS
