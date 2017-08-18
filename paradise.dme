@@ -12,6 +12,7 @@
 // BEGIN_INCLUDE
 #include "_maps\__MAP_DEFINES.dm"
 #include "_maps\cyberiad.dm"
+#include "_maps\map_files\waste\gulch.dmm"
 #include "code\_compile_options.dm"
 #include "code\hub.dm"
 #include "code\world.dm"
@@ -2263,7 +2264,8 @@
 #include "code\modules\waste_structs\ladders.dm"
 #include "code\modules\waste_structs\obstacles.dm"
 #include "code\modules\waste_structs\vault_door.dm"
-#include "code\modules\waste_structs\vaultwindow.dm"
+#include "code\modules\waste_structs\windows.dm"
+#include "code\modules\waste_structs\wrecks.dm"
 #include "code\modules\waste_turfs_flora\flora.dm"
 #include "code\modules\waste_turfs_flora\ground.dm"
 #include "code\modules\waste_turfs_flora\ground_pit.dm"
