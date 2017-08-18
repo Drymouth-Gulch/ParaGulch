@@ -2261,6 +2261,7 @@
 #include "code\modules\waste_structs\barriers.dm"
 #include "code\modules\waste_structs\doors.dm"
 #include "code\modules\waste_structs\flags.dm"
+#include "code\modules\waste_structs\furniture.dm"
 #include "code\modules\waste_structs\ladders.dm"
 #include "code\modules\waste_structs\obstacles.dm"
 #include "code\modules\waste_structs\vault_door.dm"
