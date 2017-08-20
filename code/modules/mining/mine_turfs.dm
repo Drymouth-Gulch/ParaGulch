@@ -135,7 +135,7 @@ var/global/list/rockTurfEdgeCache = list(
 				if("Plasma")
 					M = new/turf/simulated/mineral/plasma(src)
 				if("Cave")
-					new/turf/simulated/floor/plating/airless/asteroid/cave(src)
+					new/turf/ground/mountain(src)
 				if("Gibtonite")
 					M = new/turf/simulated/mineral/gibtonite(src)
 				if("Bananium")
